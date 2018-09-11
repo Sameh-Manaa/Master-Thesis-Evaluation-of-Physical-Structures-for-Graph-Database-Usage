@@ -1,5 +1,5 @@
-{\chapter{Implementation}
-\label{chap:Implementation}
+{\chapter{Storage Structures Physical Design}
+\label{chap:PhysicalDesign}
 In this chapter, we present the technical details of our implementation for the physical data structures that we will evaluate in our effort to answer a set of evaluation questions. This chapter comprises the following sections:
 
 
@@ -26,14 +26,14 @@ Finally, we provide a summary for what we discussed in the chapter. (\ref{summar
 
 \begin{enumerate}
 %Pardon the mess in the notes.
-\item How scalable are the data structures to accommodate graph data with larger size (i.e. higher number of vertices and/or edges)?
+\item How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger data sizes (i.e. higher number of vertices and/or edges)? 
 %We agreed that the results reducing files are Ok for SF1. But we also want changes in SFs, such that we really can compare scales. We hope 0.1, 0.5... And being evil, I would even suggest 5 and 10. 
-%Suggestion for writing Q1 differently: How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger sizes (i.e. higher number of vertices and/or edges)? 
+%Suggestion for writing Q1 differently: How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger data sizes (i.e. higher number of vertices and/or edges)? 
 \item What is the impact of loading the data in large versus small batches, for the different data structures, on the performance on this task?
 \item What change in the data loading time, could processing the data in parallel introduce in comparison to sequential processing?
 %We will test only with one data structure. And we agree on this. But we need to make a good argument why we choose this data structure, and also why just one. 
 %Data sizes perhaps (but here we can prune and maybe only have 3 sizes)
-\item In a business intelligence environment, with matching and selection queries, what is the effect of the the data structure choice on the query response time?%matching queries
+\item In a business intelligence environment, with selection and full scan queries, what is the effect of the the data structure choice on the query response time?%matching queries
 %We could test with different sizes too.
 %Selection query: centrality.
 %Then your 4th chapter will be: Memory Footprint Scalability and Data Loading
@@ -58,10 +58,10 @@ The second group is for graph properties data structures. A properties data stru
 In (\ref{GraphTopolgyImp}), we are introducing our physical implementation details for data structures that belong to the group of graph topology data structures. Next, we are presenting our physical implementation details for data structures that belong to the group of graph properties data structures in (\ref{GraphPropertiesImp}).
 
 
-\subsection{Graph Topology Structures}
+\section{Graph Topology Structures}
 \label{GraphTopolgyImp}
 
-Graph topology data structures are designed exclusively to enable fast traversal across a graph. We are considering he logical representation of the graph topology data structures discussed in (\ref{Background}) as our base for implementing their physical counterparts. 
+Graph topology data structures are designed exclusively to enable fast traversal across a graph. We are considering he logical representation of the graph topology data structures discussed in (\ref{chap:Background}) as our base for implementing their physical counterparts. 
 
 In our physical implementation of the logical graph topology data structures, we have extended their definition for the stored graph from just a directed simple graph into a directed multi-graph. The multi-graph feature would mean that multiple edges can exist between the same two vertices. To distinguish multiple edges between the same two vertices, we store an edge label for each edge.
 
@@ -90,7 +90,7 @@ In the following subsections we are providing the technical details of our physi
 \label{fig_adjacencyMatrix_physical}
 \end{figure} 
 
-\subsubsection{Adjacency Matrix}
+\subsection{Adjacency Matrix}
 
 In this subsection, we present our physical implementation of the labeled adjacency matrix data structure as one of the graph topology structures.
 
@@ -137,7 +137,7 @@ We chosen to implement the \textit{Adjacency Matrix} as a vector of vectors due 
 
 \end{itemize}
 
-\subsubsection{Compressed Sparse Row (CSR)}
+\subsection{Compressed Sparse Row (CSR)}
 
 In this subsection, we present our physical implementation of the labeled compressed sparse row (CSR) data structure as one of the graph topology structures.
 
@@ -152,7 +152,7 @@ In this subsection, we present our physical implementation of the labeled compre
 \end{figure}
 
 
-\subsubsection{Adjacency List}
+\subsection{Adjacency List}
 \label{adjList_physical}
 
 In this subsection, we present our physical implementation of the labeled adjacency list data structure as one of the graph topology structures.
@@ -191,35 +191,39 @@ We chosen to implement the list of \textit{Target Vertices} as a vector due to t
 \end{itemize}
 
 
-\subsubsection{Parallel Adjacency List}
+\subsection{Parallel Adjacency List}
 
 In this subsection, we present our physical implementation of a parallel version of the adjacency list data structure. The parallel adjacency list differs from the adjacency list presented in (\ref{adjList_physical}) in that the parallel adjacency list enables the ingestion of data from multiple parallel loaders simultaneously.
 
 
 
-\subsection{Graph Properties Structures}
+\section{Graph Properties Structures}
 \label{GraphPropertiesImp}
 
 
-\subsubsection{Universal Table}
+\subsection{Universal Table}
 
 
-\subsubsection{Emerging Schema}
+\subsection{Emerging Schema}
 
 
-\subsubsection{Schema Hashed Map}
+\subsection{Schema Hashed Map}
 
 
-\subsubsection{Parallel Schema Hashed Map}
+\subsection{Parallel Schema Hashed Map}
 
 
 
 \section{Data Loader}
 \label{dataLoader}
+\subsection{Bulk Loading}
+\subsection{Parallel Loading}
 
 
 \section{Queries Definition}
 \label{qryDef}
+\subsection{Selection Queries}
+\subsection{Full Scan Query}
 
 
 \section{Evaluation Environment}

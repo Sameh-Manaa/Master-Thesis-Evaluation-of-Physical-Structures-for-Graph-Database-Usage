@@ -1,49 +1,15 @@
-{\chapter{Storage Structures Physical Design}
+{\chapter{Physical Design}
 \label{chap:PhysicalDesign}
 In this chapter, we present the technical details of our implementation for the physical data structures that we will evaluate in our effort to answer a set of evaluation questions. This chapter comprises the following sections:
 
 
 \begin{itemize}  
-\item \textbf{Evaluation Questions:}\\
-First, we introduce the set of evaluation questions that this thesis will answer. (\ref{evalQests})
 \item\textbf{Data Structures:}\\
 In \ref{dataStructs}, we introduce the different data structures that we evaluate their performance in accordance to the evaluation questions. (\ref{dataStructs})
-\item \textbf{Data Loader:}\\
-Next, we present the data loader component that we utilize for loading the data into the data structures. (\ref{dataLoader})
-\item \textbf{Queries Definition:}\\
-We present a set of queries that we perform against the data stored in the data structures in \ref{qryDef}.
-\item \textbf{Evaluation Environment:}\\
-In \ref{evalEnv}, we detail the specifications of the technical environment that we use to test the performance of loading and querying the data structures. 
-\item \textbf{Evaluation Dataset:}\\
-In this section, we present the dataset we used to evaluate the performance of the data structures. (\ref{dataset})
 \item \textbf{Summary:}\\
 Finally, we provide a summary for what we discussed in the chapter. (\ref{summary})
 \end{itemize}
  
-\section{Evaluation Questions}
-\label{evalQests}
-
-
-\begin{enumerate}
-%Pardon the mess in the notes.
-\item How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger data sizes (i.e. higher number of vertices and/or edges)? 
-%We agreed that the results reducing files are Ok for SF1. But we also want changes in SFs, such that we really can compare scales. We hope 0.1, 0.5... And being evil, I would even suggest 5 and 10. 
-%Suggestion for writing Q1 differently: How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger data sizes (i.e. higher number of vertices and/or edges)? 
-\item What is the impact of loading the data in large versus small batches, for the different data structures, on the performance on this task?
-\item What change in the data loading time, could processing the data in parallel introduce in comparison to sequential processing?
-%We will test only with one data structure. And we agree on this. But we need to make a good argument why we choose this data structure, and also why just one. 
-%Data sizes perhaps (but here we can prune and maybe only have 3 sizes)
-\item In a business intelligence environment, with selection and full scan queries, what is the effect of the the data structure choice on the query response time?%matching queries
-%We could test with different sizes too.
-%Selection query: centrality.
-%Then your 4th chapter will be: Memory Footprint Scalability and Data Loading
-%Then your 5th chapter will be: Data Structure Suitability 
-%for Matching and Selection Queries
-%Future work: Mining queries... And interactive workloads.
-
-%Pointer to help you elaborate the questions for queries: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.721.9607&rep=rep1&type=pdf
-\end{enumerate}
-
 \section{Data Structures}
 \label{dataStructs}
 
@@ -143,7 +109,7 @@ In this subsection, we present our physical implementation of the labeled compre
 
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \hspace*{-0.4in}
 \includegraphics[width=6.8in]{adjacencyList_physical}
@@ -211,27 +177,6 @@ In this subsection, we present our physical implementation of a parallel version
 
 
 \subsection{Parallel Schema Hashed Map}
-
-
-
-\section{Data Loader}
-\label{dataLoader}
-\subsection{Bulk Loading}
-\subsection{Parallel Loading}
-
-
-\section{Queries Definition}
-\label{qryDef}
-\subsection{Selection Queries}
-\subsection{Full Scan Query}
-
-
-\section{Evaluation Environment}
-\label{evalEnv}
-
-
-\section{Evaluation Dataset}
-\label{dataset}
 
 
 \section{Summary}

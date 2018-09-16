@@ -86,6 +86,7 @@
 
 
 
+\usepackage{inputenc}
 \begin{document}
 
 \ifgerman{
@@ -163,10 +164,11 @@
 \include{chapters/1_Introduction}
 \include{chapters/2_Background}
 \include{chapters/3_PhysicalDesign}
-\include{chapters/4_Evaluation:ScalabilityAndDataLoading}
-\include{chapters/5_Evaluation:Queries}
-\include{chapters/6_RelatedWork}
-\include{chapters/7_ConclusionAndFutureWork}
+\include{chapters/4_EvaluationEnvironment}
+\include{chapters/5_Evaluation:ScalabilityAndDataLoading}
+\include{chapters/6_Evaluation:Queries}
+\include{chapters/7_RelatedWork}
+\include{chapters/8_ConclusionAndFutureWork}
 
 
 %*********************************************************************%
@@ -187,7 +189,7 @@
 \addcontentsline{toc}{chapter}{\bibname} % 
 \bibliographystyle{alpha} % plain gerplain abbrvnat unsrtnat alphag alpha
 % in a thesis you have space... use full names
-\bibliography{literature/IEEEfull,literature/MYfull,literature/literature}
+\bibliography{literature/literature}
 % in a paper, space is limited. use abreviations
 %\bibliography{../literature/IEEEabrv,../literature/MYabrv,../literature/literature}
 

@@ -1,7 +1,21 @@
 {\chapter{Background}
 \label{chap:Background}
 
-In this chapter, we are presenting the necessary background knowledge concerning topics covered in this thesis. In (\ref{sec:Graphs}), we define what is a graph according to the graph theory and discuss the different graph types. In (\ref{sec:GraphModels}), we discuss the property graph model (PGM) and the resource description framework model (RDF), as two types of logical graph data models that are mostly used by state of the art graph databases. We present the storage structures used by graph databases to store graph data in (\ref{sec:StorageStructures}). We end the chapter with a summary of what have been discussed in the chapter (\ref{sec:BackgroundSummary}).
+In this chapter, we present the necessary background knowledge concerning topics covered in this thesis. This chapter is consisted of the following sections: 
+
+\begin{itemize}  
+\item\textbf{Graphs:}\\
+In (\ref{sec:Graphs}), we make a definition for a graph according to the graph theory and discuss the different graph types.
+
+\item \textbf{Graph Data Models:}\\
+In (\ref{sec:GraphModels}), we discuss the property graph model (PGM) and the resource description framework model (RDF), as two types of logical graph data models that are mostly used by state of the art graph databases.
+
+\item \textbf{Graph Data Structures:}\\
+We present the data structures used by graph databases for the storage of graphs in (\ref{sec:StorageStructures}).
+
+\item \textbf{Summary:}\\
+Lastly, we make a summary of the main topics we discussed in this chapter in (\ref{sec:BackgroundSummary}).
+\end{itemize}
 
 \section{Graphs}
 \label{sec:Graphs}
@@ -9,14 +23,14 @@ In this section, we discuss graphs and graph  types. In (\ref{subsec:Graph?}), w
 
 \subsection{What is a Graph?}
 \label{subsec:Graph?}
-Graph theory is a mathematical topic that is focused on the study of graphs. A graph \textit{G} is defined as a finite nonempty set \textit{V} of vertices along with the set \textit{E} of edges. The set \textit{E} consists of unordered pairs of vertices in \textit{V}, where an edge \textit{x \(\in\) E} is defined as a pair of vertices \(\textit{x=\{u,v\}}\) \cite{harary6graph}.
+Graph theory is a mathematical topic that is focused on the study of graphs. A graph \textit{G = (V,E)} is defined as a finite nonempty set \textit{V} of vertices along with the set \textit{E} of edges. The set \textit{E} consists of unordered pairs of vertices in \textit{V}, where an edge \textit{x \(\in\) E} is defined as a pair of vertices \(\textit{x = \{u,v\}}\) \cite{harary6graph}.
 
-We define any two vertices \textit{u \(\in\) V} and \textit{v \(\in\) V} that forms any of the edges in \textit{E} as adjacent vertices. Similarly, two edges \textit{x \(\in\) E} and \textit{y \(\in\) E} are adjacent if they are formed of two pair of vertices where the two pair are sharing one common vertex. The adjacencies of a vertex \textit{u}, is the set \textit{K \(\in\) V} of vertices, where for each vertex \textit{a \(\in\) K}, there is an edge \textit{s \(\in\) E} and \textit{s=\{u,a\}} \cite{harary6graph}.
+We define any two vertices $u \in V$ and $v \in V$ that forms any of the edges in \textit{E} as adjacent vertices. Similarly, two edges $x \in E$ and $y \in E$ are adjacent if they are formed of two pair of vertices where the two pair are sharing one common vertex. The adjacencies of a vertex \textit{u}, is the set $K \subset V$ of vertices, where for each vertex $a \in K$, there is an edge \mbox{$s \in E$} and \textit{s = \{u,a\}} \cite{harary6graph}.
 
 \begin{figure}
 \centering
-\includegraphics{pics/Graph.png}
-\caption{An example of a graph \textit{G} \cite{harary6graph}}
+\includegraphics[width=10cm]{pics/Graph.png}
+\caption{An example of a graph \textit{G} \cite{harary6graph}.}
 \label{fig_graph}
 \end{figure} 
 
@@ -29,12 +43,13 @@ In (\ref{fig_graph}), we are showing an example of a graph \textit{G}. In graph 
 \label{subsec:GraphTypes}
 
 Graphs come in many types and shapes according to how rich they are with information. In (\ref{fig_graph-types}), we show an example of different graph types. A short explanation of each graph type is included in the below list. Some of the below mentioned graph types can be be used together to form one graph \cite{DBLP:journals/corr/abs-1006-2361}.
-
+\\
+\\
 
 \begin{figure}
 \centering
-\includegraphics[width=16cm]{pics/graph-types.png}
-\caption{An example of different graph types \cite{DBLP:journals/corr/abs-1006-2361}}
+\includegraphics[width=17cm]{pics/graph-types.png}
+\caption{An example of different graph types \cite{DBLP:journals/corr/abs-1006-2361}.}
 \label{fig_graph-types}
 \end{figure} 
 
@@ -59,40 +74,255 @@ Graphs come in many types and shapes according to how rich they are with informa
 
 \item \textbf{Edge-labeled Graph:} used to specify the kind of relationship between vertices.
 
-\item \textbf{Vertex-labeled Graph:} a graph where a label is assigned to a vertex to identify its type or identity.
+\item \textbf{Vertex-labeled Graph:} a graph where a label is assigned to a vertex to describe the vertex's type or set the vertex's identity.
 
-\item \textbf{Edge-attributed Graph:} a graph where descriptive attributes are assigned to edges.
+\item \textbf{Edge-attributed Graph:} a graph where descriptive properties are assigned to edges.
 
-\item \textbf{Vertex-attributed Graph:} a graph where descriptive attributes are assigned to vertices.
+\item \textbf{Vertex-attributed Graph:} a graph where descriptive properties are assigned to vertices.
 
 \item \textbf{Resource Description Framework (RDF) Graph:} a graph where vertices and edges are identified by Uniform Resource Identifiers (URI). The RDF is a standard that was issued by the World Wide Web consortium.
 
 \end{itemize}
 
+
 \section{Graph Data Models}
 \label{sec:GraphModels}
 
+In (\ref{sec:Graphs}), we presented the definition of graph and introduced the difference between the various graph types. In this section, we discuss two logical graph data models. First, we present the property graph model (PGM) in (\ref{subsec:PGM}). Next, we present the resource description framework model (RDF) in (\ref{subsec:RDF}).
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=17cm]{pics/PGM.png}
+\caption{A diagram of a property graph \cite{DBLP:journals/corr/abs-1006-2361}.}
+\label{fig_PGM}
+\end{figure} 
+
 \subsection{Property Graph Model}
 \label{subsec:PGM}
-\subsection{Resource Description Framework (RDF) Model}
+
+Several graph database systems are supporting the property graph model. The property graph model is characterized with being directed, labeled, attributed and multi-graph. In (\ref{fig_PGM}), we show an example diagram of a property graph model. 
+
+In property graph model, an edge is defined as an ordered pair of vertices. The first vertex in the pair is the source vertex of the edge and the second vertex in the pair is the target vertex of the edge. 
+
+Vertices and edges in a property graph model are labeled. A vertex label is an identifier for the vertex while an edge label is used to define the relationship type of an edge. 
+
+A vertex in the property graph model is described by properties (or attributes). The properties describing a vertex are a set of key-value pairs. An example of a property describing a vertex in (\ref{fig_PGM}) is \textit{"name"="alberto"} property which is describing vertex "4". Similarly, an edge can also be described by a set of key-value properties. An example of a property describing an edge in (\ref{fig_PGM}) is \textit{"start"="2007"} property which is describing edge "attends".
+
+Property graph model is supporting also the creation of multi-graphs. In a multi-graph, more than two edges can be defined using the same pair of vertices and with the same direction, given that the edges have different labels \cite{DBLP:journals/corr/abs-1006-2361, Robinson:2015:GDN:2846367}.
+
+
+
+\subsection{Resource Description Framework Model (RDF)}
 \label{subsec:RDF}
 
+The World Wide Web consortium (W3C) has developed the Resource Description Framework (RDF) as a foundation for metadata exchanging and processing across the web. RDF is used mostly in building semantic webs. The RDF standard is used to express the metadata of the web documents. RDF is well supported by a model of triples. A triple is consisting of a resource, a property, and a value. The RDF model is characterized with being a vertex-labeled, edge-labeled, and directed graph \cite{ngomo2014introduction}.
 
-\section{Graph Storage Structures}
+A resource is anything that can be uniquely identified using a Unique Resource Identifier (URI). A web page is an example of a resource identified by its Unique Resource Locator (URL). A property is used to define a binary relationship between a resource and a value. A value itself can be a resource or a string of characters. A triple is considered as an RDF statement that is defined by the three elements (resource, property, value) \cite{Las99,Lee2005}.
+
+
+
+In (\ref{fig_RDF}), we show an example of an RDF graph that is consisting of 9 triples. The graph is describing the city of Leipzig and its mayor. An example of a triple in the graph is \textit{("Leipzig", "locatedIn", "Saxony")} with \textit{"Leipzig"} representing the resource, \textit{"locatedIn"} representing the property, and \textit{"Saxony"} representing the value in the triple.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{pics/RDF-Graph.png}
+\caption{An example of an RDF graph that consists of 9 triples \cite{ngomo2014introduction}.}
+\label{fig_RDF}
+\end{figure} 
+
+\section{Graph Data Structures}
 \label{sec:StorageStructures}
 
+In (\ref{sec:GraphModels}), we presented two logical graph data models. First, we presented the property graph model (PGM) in (\ref{subsec:PGM}). Next, we presented the resource description framework model (RDF) in (\ref{subsec:RDF}). In \cite{Paradies2017},  the authors (\textit{Paradies et al.}) have categorized the data structures used to store graph data into two categories. First category is for the graph data structures used by graph databases for solely storing a directed graph topology. Second category is for the graph data structures used by graph databases for solely storing graph properties. In this section, we adopt the categorization presented in \cite{Paradies2017} and present the necessary background information of a selected subset of graph data structures. We first discuss three data structures (Adjacency Matrix, Compressed Sparse Row (CSR), Adjacency List) for graph topology in (\ref{subsec:GraphTopology}). Next, we present three data structures (Universal Table, Emerging Schema, Nested Key-Value Store) for storing graph properties in (\ref{subsec:GraphProperties}).
+
+
 \subsection{Graph Topology}
+\label{subsec:GraphTopology}
+
+The graph topology storage structures are meant to store the topology of a graph. We mean by the topology of a graph, the vertices of the graph identified by their labels and the directed edges connecting those vertices, leaving out the edge-labels, vertex-properties and edge-properties.
+
+In this section, we introduce three data structures that can be utilized by graph databases for the storage of a graph topology. In (\ref{subsubsec:AdjacencyMatrix}), we present the adjacency matrix as the first storage structure for graph topology. Next, we present the compressed sparse row (CSR) in (\ref{subsubsec:CSR}). Lastly, we present the adjacency list in (\ref{subsubsec:AdjacencyList}).
+
+
+\begin{figure}[H]
+\centering
+    \subfigure[Directed graph \textit{G}.]
+    {
+        \includegraphics[width=0.35\textwidth]{pics/DirectedGraph.png}
+        \label{fig:directedGraph_logical}
+    }
+\centering
+    \subfigure[Adjacency matrix representation of \textit{G}.]
+    {
+        \includegraphics[width=0.42\textwidth]{pics/AdjacencyMatrix_logical.png}
+        \label{fig:adjMat_logical}
+    }
+    \\
+\centering
+    \subfigure[CSR representation of \textit{G}.]
+    {
+        \includegraphics[width=0.35\textwidth]{pics/CSR_logical.png}
+        \label{fig:CSR_logical}
+    }
+    \subfigure[Adjacency list representation of \textit{G}.]
+    {
+        \includegraphics[width=0.4\textwidth]{pics/AdjacencyList_logical.png}
+        \label{fig:adjLst_logical}
+    }
+    \caption{Logical representations of the topology of directed graph \textit{G} \cite{cormen2009introduction}.}
+    \label{fig:GraphTopology_logical}
+\end{figure}
+
+
+\subsubsection{Adjacency Matrix}
+\label{subsubsec:AdjacencyMatrix}
+
+The adjacency matrix is the preferred method of storing graph \textit{G = (V,E)} when the graph is dense (i.e. \textit{$|E| \approx |V|^2$}) or in case there is a need to get a fast response on checking for two vertices \textit{u} and \textit{v}, if there is an edge tying them to each other. 
+
+For a directed graph \textit{G = (V,E)}, the adjacency matrix \textit{A} representing the graph is a \textit{$|V| \times |V|$} matrix and the vertices of the graph are labeled with a sequence of numbers 1,2,...,\textit{|V|}. For a cell \textit{$a_{ij}$} in matrix \textit{A} where \textit{$1 \leq i \leq |V|$} and similarly \textit{$1 \leq j \leq |V|$}, a value of "1" is assigned to the cell if \textit{(i,j) \(\in\) E}, otherwise, a value of "0" is assigned to the cell \cite{cormen2009introduction}.
+
+In (Figure \ref{fig:directedGraph_logical}), we show an example of a directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjMat_logical}), we show the adjacency matrix logical representation of \textit{G} \cite{cormen2009introduction}. 
+
+The memory required for storing an adjacency matrix of a graph is $O(|V|^2)$ which is not affected by the number of edges \textit{|E|} in the graph \cite{cormen2009introduction}.
+
+
+
+\subsubsection{Compressed Sparse Row (CSR)}
+\label{subsubsec:CSR}
+
+Sparseness of an adjacency matrix \textit{A} can be solved by storing only the non-zero elements of the matrix (i.e. recording only the existence of an edge and discarding information about the absence of an edge between two vertices). The compressed sparse row (CSR) is a compact storage format that stores only non-zero elements of a sparse matrix. The compressed sparse row (CSR) format is storing the information about the non-zero elements of the matrix in two vectors with contiguous memory locations \textit{(col\_ind,row\_ptr)}. We store the column indices of the non-zero elements in the matrix in \textit{col\_ind} ordered by their position precedence in the matrix when scanning the matrix in a row-wise left-to-right traversal. In \textit{row\_ptr}, we store only the indices of the elements in \textit{col\_ind} that are located first in their respective rows in the matrix \cite{Bai:2000:TSA:357352,Paradies2017}.
+
+In (Figure \ref{fig:CSR_logical}), we show the compressed sparse row (CSR) that is representing the adjacency matrix in (Figure \ref{fig:adjMat_logical}) and consequently representing the directed graph \textit{G} in (Figure \ref{fig:directedGraph_logical}) \cite{Bai:2000:TSA:357352}.
+
+Instead of storing $|V|^2$ elements in the adjacency matrix, the compressed sparse row (CSR) format is consuming much less storage by storing only $nnz + |V| + 1$ elements, where $nnz$ is the number of non-zero elements in the matrix \cite{Bai:2000:TSA:357352}. Although the compressed sparse row (CSR) format is offering a contiguous memory allocation of the graph data compacted in two vectors, a manipulation by adding or removing elements to CSR is expensive. Because the order of elements stored in the two vectors \textit{(col\_ind,row\_ptr)} must always be maintained, a manipulation to the CSR data implies a reorganization of the elements in the vectors to maintain their elements order.
+
+\subsubsection{Adjacency List}
+\label{subsubsec:AdjacencyList}
+
+In adjacency matrix we have faced the problem of storing redundant and unnecessary information regarding the absent edges. Although the compressed sparse row (CSR) format has offered a solution to this problem by storing only the necessary information, it raised a different issue which is the expensive manipulation of the data.
+
+The adjacency list \textit{Adj} of a graph \textit{G = (V,E)} is composed of a set of $|V|$ pairs. Each pair is consisted of a vertex $u$ and a vector $K$ that contains the adjacencies of $u$ \cite{van1998python}.
+
+Adjacency lists is memory efficient in storing sparse graphs by storing only information that indicates the existence of an edge. Adjacency lists keeps the adjacencies vector $K$ of each vertex ordered for efficient look-up operations. Adding or removing a vertex to/from $K$ requires a reorganization of the elements in the vector to maintain the elements order. The overhead of reorganizing the elements in $K$ is proportional to the size of $K$ which is less when compared to the similar overhead in CSRs that is proportional to $|V|$ \cite{van1998python}.
+
+In (Figure \ref{fig:directedGraph_logical}), we show an example of a directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjLst_logical}), we show the adjacency list logical representation of \textit{G} \cite{cormen2009introduction}. 
+
+The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \cite{cormen2009introduction}.
+
+
+
+
+
+
+
+\begin{figure}[H]
+\centering
+    \subfigure[An attributed property graph \textit{G}.]
+    {
+        \includegraphics[width=1\textwidth]{pics/PropertyGraph.png}
+        \label{fig:PropertyGraph}
+    }
+\centering
+    \subfigure[Vertex universal table of \textit{G}]
+    {
+        \includegraphics[width=0.45\textwidth]{pics/VertexUniversalTable.png}
+        \label{fig:VertexUniTbl}
+    }
+\centering
+    \subfigure[Edge universal table of \textit{G}.]
+    {
+        \includegraphics[width=0.5\textwidth]{pics/EdgeUniversalTable.png}
+        \label{fig:EdgeUniTbl}
+    }
+\centering
+    \subfigure[Emerging Schema - vertex column groups of \textit{G}.]
+    {
+        \includegraphics[width=0.45\textwidth]{pics/VertexEmergingSchema.png}
+        \label{fig:VertexEmergingSchema}
+    }
+\centering
+    \subfigure[Emerging Schema - edge column groups of \textit{G}.]
+    {
+        \includegraphics[width=0.5\textwidth]{pics/EdgeEmergingSchema.png}
+        \label{fig:EdgeEmergingSchema}
+    }
+    \caption{Universal table and emerging schema representations of a property graph \textit{G}. \cite{DBLP:journals/corr/ParadiesLB14}.}
+    \label{fig:GraphProperties_logical}
+\end{figure}
+
 \subsection{Graph Properties}
+\label{subsec:GraphProperties}
+
+In (\ref{subsec:GraphTopology}), we have introduced three graph topology data structures. The three data structures are storing information only regarding the graph topology, leaving out the storage of information regarding the properties of the graph to the graph properties data structures. 
+
+In this section, we introduce three data structures that can be utilized by graph databases for storing the properties of vertices and edges for a given graph. In (\ref{subsubsec:UniversalTable}), we present the universal table. Next, we present the emerging schema approach in (\ref{subsubsec:EmergingSchema}). Lastly, we present the nested key-value store in (\ref{subsubsec:NestedkeyValueStore}).
+
+\subsubsection{Universal Table}
+\label{subsubsec:UniversalTable}
+
+Universal tables is a method of storing the vertices and edges properties in only two tables. Each vertex is represented by a single row in the vertex universal table. Similarly, each edge is represented by a single row in the edge universal table. A column in the universal table is representing a distinct object's property. For an object's row in a universal table, a null value assigned to one of the object's columns means that the property represented by this column is not applicable to that object \cite{Paradies2017}.
+
+Vertices and edges can have a distinct high number of properties which only a few of those properties are applicable to a specific vertex or edge. The in-applicability of all properties to every vertex or edge leads to a degree of sparseness in the universal table \cite{Paradies2017}.
+
+The storage of an object (vertex or edge) in a single row allow for a join-free method to extract an object's properties \cite{Paradies2017}.
+
+In (Figure \ref{fig:PropertyGraph}), we show an example of a property graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexUniTbl}), we present a vertex universal table for $G$, where each single vertex in $G$ is represented by a single row and each distinct vertex property is represented by a separate column. Similarly, in (Figure \ref{fig:EdgeUniTbl}), we present an edge universal table for $G$, where each single edge in $G$ is represented by a single row and each distinct edge property is represented by a separate column \cite{Paradies2017}.
 
 
-\section{Data Structures in C++}
-\label{sec:DataStructuresInC++}
+\subsubsection{Emerging Schema}
+\label{subsubsec:EmergingSchema}
 
-\subsection{Vector}
-\subsection{Map}
-\subsection{Unordered Map}
+In (\ref{subsubsec:UniversalTable}), we have discussed a simple method of storing an attributed graph using only a pair of universal tables, a vertex universal table and an edge universal table. The universal table method is subject to one drawback as it tends to be more sparse as the number of distinct attributes increase.
+
+Emerging schema is a method that applies vertical partitioning on the properties of vertices/edges in a way that reduces the sparseness of the data and at the same time doesn't require the joining of many tables to extract a single object's properties. The emerging schema method is exploring the inherent schema in the data to create a set of column groups for vertices and another set of column groups for edges. 
+
+One column group is consisted of multiple columns where the first column is always representing the unique object's identifier. In addition to the object's identifier column, properties that co-occur frequently together are clustered into the same column group \cite{Paradies2017}.
+
+The clustering of the property attributes into column groups can be done by applying machine learning clustering algorithms such as k-means \cite{Paradies2017}. The input to the clustering algorithm is the set of distinct columns from all vertices (or edges). Each attribute is considered an $n-dimension$ point, where $n$ is the number of vertices or edges to be clustered and the value for each dimension is "1" in case a non-null value and "0" in case of a null value.
+
+In (Figure \ref{fig:PropertyGraph}), we show an example of a property graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexEmergingSchema}), we present the vertex column groups for $G$ that is produced by the emerging schema method. A single vertex in $G$ can be represented in more than one of the resulted vertex column groups. Similarly, in (Figure \ref{fig:EdgeEmergingSchema}), we present the edge column groups for $G$ that is produced by the emerging schema method. A single edge in $G$ can be represented in more than one of the resulted edge column groups \cite{Paradies2017}.
+
+
+\subsubsection{Nested Key-Value Store}
+\label{subsubsec:NestedkeyValueStore}
+
+In this section, we are presenting another approach for solving the sparseness problem of universal tables discuss in (\ref{subsubsec:UniversalTable}).
+
+Graph properties are composed of vertices-properties and edges-properties. The properties of a vertex/edge are consisted of key-value pairs that describe the vertex/edge. In a given vertex-attributed and edge-attributed graph $G = (V,E)$, for each vertex $u \in V$ and edge $x \in E$, a set $P$ of key-value pairs exists. Each key-value pair $(k,v) \in P$, is consisted of a property $k$ that describes the vertex/edge and a value $v$ that is assigned to $k$ \cite{ladwig2011cumulusrdf}.
+
+Nested key-value stores are storing an object's (vertex or edge) properties in a two level nested key-value stores. The first level of the store is representing rows, where each object is stored in a row. The object's row is represented by a key-value pair, where the key is a unique identifier for the object and the value is itself a second level of a key-value store. The key-value store on the second level is to represent columns, where each object's property is stored in a column. Each column is represented by a key-value pair, where the key is the name of the property describing the object and the value is a string of characters \cite{ladwig2011cumulusrdf}.
+
+A vertex is identified by a unique id  that is assigned to the vertex, while an edge is identified by the edge's source and target vertices as well as the edge label in the case of a multi-graph. We store the properties of the vertices in one nested key-value store separated from another nested key-value store that we use for the storage of the properties of the edges.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=15cm]{pics/NestedKey-ValueStore.png}
+\caption{A nested key-value store composed of rows and columns \cite{ladwig2011cumulusrdf}.}
+\label{fig_nestedKey-ValueStore}
+\end{figure} 
+
+In (\ref{fig_nestedKey-ValueStore}), we show a diagram of a nested key-value store that is composed of rows and columns. On the first level of the store rows are stored while columns are stored in the second level of the store \cite{ladwig2011cumulusrdf}.
+
+The nested key-value store is searched for an object's row using the object's identifier $(k)$ and the value returned is the object's columns $(c)$. The object's columns $(c)$ are searched for a specific column or property to return the value $(v)$ of that column \cite{ladwig2011cumulusrdf}.
+
+
+
+
+%\section{Data Structures in C++}
+%\label{sec:DataStructuresInC++}
+
+%\subsection{Vector}
+%\subsection{Map}
+%\subsection{Unordered Map}
 
 \section{Summary}
 \label{sec:BackgroundSummary}
+
+In this chapter, we made a formal definition of a graph according to the graph theory and discussed the different graph types. We presented two logical graph models that are most commonly used  by state of the art graph databases, the property graph model (PGM) and the resource description framework model (RDF). We presented several storage structures used by graph databases to store graph data and we differentiated between structures used to store graph topology and structures used to store graph properties.
+
+Aiming to evaluate and benchmark the different graph storage structures, we have implemented a set of graph storage structures by their two types (graph topology structures and graph properties structures). In the next chapter, we present the details of the implementation with a focus on the physical design of the graph storage structures we have implemented.
 
 }

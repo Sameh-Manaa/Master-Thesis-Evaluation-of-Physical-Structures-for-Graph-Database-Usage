@@ -13,6 +13,9 @@ In (\ref{sec:GraphModels}), we discuss the property graph model (PGM) and the re
 \item \textbf{Graph Data Structures:}\\
 We present the data structures used by graph databases for the storage of graphs in (\ref{sec:StorageStructures}).
 
+\item \textbf{ Data Structures in C++:}\\
+We present necessary background knowledge on a set of $C++$ data structures in (\ref{sec:DataStructuresInC++}).
+
 \item \textbf{Summary:}\\
 Lastly, we make a summary of the main topics we discussed in this chapter in (\ref{sec:BackgroundSummary}).
 \end{itemize}
@@ -248,7 +251,7 @@ The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \
         \includegraphics[width=0.5\textwidth]{pics/EdgeEmergingSchema.png}
         \label{fig:EdgeEmergingSchema}
     }
-    \caption{Universal table and emerging schema representations of a property graph \textit{G}.}
+    \caption{Universal table and emerging schema representations of property graph \textit{G}.}
     \label{fig:GraphProperties_logical}
 \end{figure}
 
@@ -318,15 +321,49 @@ The nested key-value store is searched for an object's row using the object-labe
 \section{Data Structures in C++}
 \label{sec:DataStructuresInC++}
 
+In (\ref{sec:StorageStructures}), we discussed the logical design of graph data structures. In this section, we present necessary background knowledge on data structures offered as part of the \textit{Standard Template Library} (STL) of the $C++$ programming language. In (\ref{chap:PhysicalDesign}), we will use the data structures presented in this section as the building blocks for the physical design of graph data structures.
+
+We will start with introducing the (\texttt{std::vector}) data structure in (\ref{subsec:vector}). Next, we present the (\texttt{std::map}) data structure in (\ref{subsec:map}). In (\ref{subsec:unorderedmap}), we present the (\texttt{std::unordered\_map}) data structure. Lastly, we present the (\texttt{std::pair}) data structure in (\ref{subsec:pair}).
+
 \subsection{\texttt{std::vector}}
+\label{subsec:vector}
+
+The (\texttt{std::vector}) data structure is a sequence container that is offered as part of the $STL$ library in the $C++$ programming language. Sequence containers are storing their elements in contagious memory locations \cite{josuttis2012c++}.
+
+Elements stored in a (\texttt{std::vector}) are atomic values of the same type.The order of the elements in the (\texttt{std::vector}) is the same as the order of inserting them into the container if they are appended to the end of the (\texttt{std::vector}). Another way to control the order of the elements is to insert them at exact positions in the (\texttt{std::vector}). The value of the element doesn't affect the order of the element in the container \cite{josuttis2012c++}. 
+
+The (\texttt{std::vector}) data structure is usually implemented as a dynamic array that can grow and shrink in size. Appending elements to the end of the (\texttt{std::vector}) is very fast as it takes a constant time with a complexity of $O(1)$. Inserting element at any other position than the end of the (\texttt{std::vector}) takes more time, as all the following elements need to be displaced to free room for the inserted element. The complexity of the insertion at a position other than the end is linear $O(n)$.  Accessing an elements in a (\texttt{std::vector}) by position is so fast as it takes a constant time $O(1)$, while the complexity of finding an element in a (\texttt{std::vector}) using the element's value is linear to the size of the (\texttt{std::vector}) \cite{josuttis2012c++}.
+
 \subsection{\texttt{std::map}}
+\label{subsec:map}
+
+The (\texttt{std::map}) data structure is an associative container that is offered as part of the $STL$ library in the $C++$ programming language. Elements in an associative container are accessed using their values rather than their position in the container \cite{josuttis2012c++}.
+
+An element in a (\texttt{std::map}) container is consisted of a key-value pair where the key of each pair is unique in the entire (\texttt{std::map}). The key and value which together are forming an element in a (\texttt{std::map}) can be of different types. Elements in a (\texttt{std::map}) are sorted by their keys according to the compactor of the stored elements data type. The order of insertion has no effect on the order of the elements in the container. 
+
+Storing the elements in a (\texttt{std::map}) sorted by their keys allows for range queries to be performed on the elements stored in the container \cite{josuttis2012c++}. 
+
+The (\texttt{std::map}) data structure is usually implemented as a binary search tree. Insertion of a new element or finding an existing one in a (\texttt{std::map}) has a logarithmic complexity $O(log(n))$ where "$n$" is the number of elements in the (\texttt{std::map}). Modifying the key of an element in a (\texttt{std::map}) can't be done as it will invalidate the order of the elements in the container. Instead, the element has to be removed and inserted again with the new key \cite{josuttis2012c++}.
+
 \subsection{\texttt{std::unordered\_map}}
+\label{subsec:unorderedmap}
+
+The (\texttt{std::unordered\_map}) data structure is an associative container that is offered as part of the $STL$ library in the $C++$ programming language. Elements in an associative container are accessed using their values rather than their position in the container \cite{josuttis2012c++}.
+
+Similar to the (\texttt{std::map}) data structure, an element in a (\texttt{std::unordered\_map}) container is consisted of a key-value pair where the key of each pair is unique in the entire (\texttt{std::unordered\_map}). The key and value which together are forming an element in a (\texttt{std::unordered\_map}) can be of different types. In contrast to the (\texttt{std::map}) data structure, elements in a (\texttt{std::unordered\_map}) don't have any defined order. The order of insertion has no effect on the order of the elements in the container nether the elements' values \cite{josuttis2012c++}. 
+
+The (\texttt{std::unordered\_map}) data structure is usually implemented as a hash-table. The hash-table is consisted of buckets where each element in the container is stored in a specific bucket depending on a hash value that is determined by a special hash function. Finding an element by its value in a (\texttt{std::unordered\_map}) container has a constant time complexity of $O(1)$. A feature of a good hash function is that it generates hash values to all the available buckets in the container. Growing the size of a (\texttt{std::unordered\_map}) data structure requires a rehashing to all the elements that are already stored in the container. Using the hash function, a rehashing of an element is done by generating a new hash value for the element to determine the element's new location in the container \cite{josuttis2012c++}.
+
+
 \subsection{\texttt{std::pair}}
+\label{subsec:pair}
+
+The (\texttt{std::pair}) data structure is a simple container that is offered in the $C++$ programming language. A (\texttt{std::pair}) structure is offering the storage of two values of different types as a single unit. The two values stored in a (\texttt{std::pair}) have a concrete order. A value is accessed in the (\texttt{std::pair}) by specifying the value's position in the structure whether it is the first or the second \cite{josuttis2012c++}.
 
 \section{Summary}
 \label{sec:BackgroundSummary}
 
-In this chapter, we made a formal definition of a graph according to the graph theory and discussed the different graph types. We presented two logical graph models that are most commonly used  by state of the art graph databases, the property graph model (PGM) and the resource description framework model (RDF). We presented several storage structures used by graph databases to store graph data and we differentiated between structures used to store graph topology and structures used to store graph properties.
+In this chapter, we made a formal definition of a graph according to the graph theory and discussed the different graph types. We presented two logical graph models that are most commonly used  by state of the art graph databases, the property graph model (PGM) and the resource description framework model (RDF). We presented several storage structures used by graph databases to store graph data and we differentiated between structures used to store graph topology and structures used to store graph properties. We presented a set of data structures that are offered by the $C++$ programming language which we will use as the building blocks for the physical design of graph data structures.
 
 Aiming to evaluate and benchmark the different graph storage structures, we have implemented a set of graph storage structures by their two types (graph topology structures and graph properties structures). In the next chapter, we present the details of the implementation with a focus on the physical design of the graph storage structures we have implemented.
 

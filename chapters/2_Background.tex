@@ -31,10 +31,10 @@ We define any two vertices $u \in V$ and $v \in V$ that forms any of the edges i
 \centering
 \includegraphics[width=10cm]{pics/Graph.png}
 \caption{An example of a graph \textit{G} \cite{harary6graph}.}
-\label{fig_graph}
+\label{fig:graph}
 \end{figure} 
 
-In (\ref{fig_graph}), we are showing an example of a graph \textit{G}. In graph \textit{G}, vertices \textit{u} and \textit{v} are adjacent while vertices \textit{u} and \textit{w} are not. Similarly, edges \textit{x} and \textit{y} are adjacent while edges \textit{x} and \textit{z} are not. The adjacencies of vertex \textit{u} in the graph is the set of vertices \textit{\{p,v,q\}} \cite{harary6graph}.
+In (\ref{fig:graph}), we are showing an example of a graph \textit{G}. In graph \textit{G}, vertices \textit{u} and \textit{v} are adjacent while vertices \textit{u} and \textit{w} are not. Similarly, edges \textit{x} and \textit{y} are adjacent while edges \textit{x} and \textit{z} are not. The adjacencies of vertex \textit{u} in the graph is the set of vertices \textit{\{p,v,q\}} \cite{harary6graph}.
 
 
 
@@ -42,7 +42,7 @@ In (\ref{fig_graph}), we are showing an example of a graph \textit{G}. In graph 
 \subsection{Graph Types}
 \label{subsec:GraphTypes}
 
-Graphs come in many types and shapes according to how rich they are with information. In (\ref{fig_graph-types}), we show an example of different graph types. A short explanation of each graph type is included in the below list. Some of the below mentioned graph types can be be used together to form one graph \cite{DBLP:journals/corr/abs-1006-2361}.
+Graphs come in many types and shapes according to how rich they are with information. In (\ref{fig:graph-types}), we show an example of different graph types. A short explanation of each graph type is included in the below list. Some of the below mentioned graph types can be be used together to form one graph \cite{DBLP:journals/corr/abs-1006-2361}.
 \\
 \\
 
@@ -50,7 +50,7 @@ Graphs come in many types and shapes according to how rich they are with informa
 \centering
 \includegraphics[width=17cm]{pics/graph-types.png}
 \caption{An example of different graph types \cite{DBLP:journals/corr/abs-1006-2361}.}
-\label{fig_graph-types}
+\label{fig:graph-types}
 \end{figure} 
 
 \begin{itemize}  
@@ -72,9 +72,9 @@ Graphs come in many types and shapes according to how rich they are with informa
 
 \item \textbf{Undirected Graph:} a graph where edges are denoting symmetric relationships between edges.
 
-\item \textbf{Edge-labeled Graph:} used to specify the kind of relationship between vertices.
+\item \textbf{Edge-labeled Graph:} a graph where edges are identified using a unique edge label or id.
 
-\item \textbf{Vertex-labeled Graph:} a graph where a label is assigned to a vertex to describe the vertex's type or set the vertex's identity.
+\item \textbf{Vertex-labeled Graph:} a graph where vertices are identified using a unique vertex label or id.
 
 \item \textbf{Edge-attributed Graph:} a graph where descriptive properties are assigned to edges.
 
@@ -95,19 +95,19 @@ In (\ref{sec:Graphs}), we presented the definition of graph and introduced the d
 \centering
 \includegraphics[width=17cm]{pics/PGM.png}
 \caption{A diagram of a property graph \cite{DBLP:journals/corr/abs-1006-2361}.}
-\label{fig_PGM}
+\label{fig:PGM}
 \end{figure} 
 
 \subsection{Property Graph Model}
 \label{subsec:PGM}
 
-Several graph database systems are supporting the property graph model. The property graph model is characterized with being directed, labeled, attributed and multi-graph. In (\ref{fig_PGM}), we show an example diagram of a property graph model. 
+Several graph database systems are supporting the property graph model. The property graph model is characterized with being directed, labeled, attributed and multi-graph. In (\ref{fig:PGM}), we show an example diagram of a property graph model. 
 
 In property graph model, an edge is defined as an ordered pair of vertices. The first vertex in the pair is the source vertex of the edge and the second vertex in the pair is the target vertex of the edge. 
 
 Vertices and edges in a property graph model are labeled. A vertex label is an identifier for the vertex while an edge label is used to define the relationship type of an edge. 
 
-A vertex in the property graph model is described by properties (or attributes). The properties describing a vertex are a set of key-value pairs. An example of a property describing a vertex in (\ref{fig_PGM}) is \textit{"name"="alberto"} property which is describing vertex "4". Similarly, an edge can also be described by a set of key-value properties. An example of a property describing an edge in (\ref{fig_PGM}) is \textit{"start"="2007"} property which is describing edge "attends".
+A vertex in the property graph model is described by properties (or attributes). The properties describing a vertex are a set of key-value pairs. An example of a property describing a vertex in (\ref{fig:PGM}) is \textit{"name"="alberto"} property which is describing vertex "4". Similarly, an edge can also be described by a set of key-value properties. An example of a property describing an edge in (\ref{fig:PGM}) is \textit{"start"="2007"} property which is describing edge "attends".
 
 Property graph model is supporting also the creation of multi-graphs. In a multi-graph, more than two edges can be defined using the same pair of vertices and with the same direction, given that the edges have different labels \cite{DBLP:journals/corr/abs-1006-2361, Robinson:2015:GDN:2846367}.
 
@@ -122,14 +122,14 @@ A resource is anything that can be uniquely identified using a Unique Resource I
 
 
 
-In (\ref{fig_RDF}), we show an example of an RDF graph that is consisting of 9 triples. The graph is describing the city of Leipzig and its mayor. An example of a triple in the graph is \textit{("Leipzig", "locatedIn", "Saxony")} with \textit{"Leipzig"} representing the resource, \textit{"locatedIn"} representing the property, and \textit{"Saxony"} representing the value in the triple.
+In (\ref{fig:RDF}), we show an example of an RDF graph that is consisting of 9 triples. The graph is describing the city of Leipzig and its mayor. An example of a triple in the graph is \textit{("Leipzig", "locatedIn", "Saxony")} with \textit{"Leipzig"} representing the resource, \textit{"locatedIn"} representing the property, and \textit{"Saxony"} representing the value in the triple.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=15cm]{pics/RDF-Graph.png}
 \caption{An example of an RDF graph that consists of 9 triples \cite{ngomo2014introduction}.}
-\label{fig_RDF}
+\label{fig:RDF}
 \end{figure} 
 
 \section{Graph Data Structures}
@@ -183,7 +183,7 @@ The adjacency matrix is the preferred method of storing graph \textit{G = (V,E)}
 
 For a directed graph \textit{G = (V,E)}, the adjacency matrix \textit{A} representing the graph is a \textit{$|V| \times |V|$} matrix and the vertices of the graph are labeled with a sequence of numbers 1,2,...,\textit{|V|}. For a cell \textit{$a_{ij}$} in matrix \textit{A} where \textit{$1 \leq i \leq |V|$} and similarly \textit{$1 \leq j \leq |V|$}, a value of "1" is assigned to the cell if \textit{(i,j) \(\in\) E}, otherwise, a value of "0" is assigned to the cell \cite{cormen2009introduction}.
 
-In (Figure \ref{fig:directedGraph_logical}), we show an example of a directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjMat_logical}), we show the adjacency matrix logical representation of \textit{G} \cite{cormen2009introduction}. 
+In (Figure \ref{fig:directedGraph_logical}), we show an example of a vertex-labeled directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjMat_logical}), we show the adjacency matrix logical representation of \textit{G} \cite{cormen2009introduction}. 
 
 The memory required for storing an adjacency matrix of a graph is $O(|V|^2)$ which is not affected by the number of edges \textit{|E|} in the graph \cite{cormen2009introduction}.
 
@@ -194,7 +194,7 @@ The memory required for storing an adjacency matrix of a graph is $O(|V|^2)$ whi
 
 Sparseness of an adjacency matrix \textit{A} can be solved by storing only the non-zero elements of the matrix (i.e. recording only the existence of an edge and discarding information about the absence of an edge between two vertices). The compressed sparse row (CSR) is a compact storage format that stores only non-zero elements of a sparse matrix. The compressed sparse row (CSR) format is storing the information about the non-zero elements of the matrix in two vectors with contiguous memory locations \textit{(col\_ind,row\_ptr)}. We store the column indices of the non-zero elements in the matrix in \textit{col\_ind} ordered by their position precedence in the matrix when scanning the matrix in a row-wise left-to-right traversal. In \textit{row\_ptr}, we store only the indices of the elements in \textit{col\_ind} that are located first in their respective rows in the matrix \cite{Bai:2000:TSA:357352,Paradies2017}.
 
-In (Figure \ref{fig:CSR_logical}), we show the compressed sparse row (CSR) that is representing the adjacency matrix in (Figure \ref{fig:adjMat_logical}) and consequently representing the directed graph \textit{G} in (Figure \ref{fig:directedGraph_logical}) \cite{Bai:2000:TSA:357352}.
+In (Figure \ref{fig:CSR_logical}), we show the compressed sparse row (CSR) that is representing the adjacency matrix in (Figure \ref{fig:adjMat_logical}) and consequently representing the vertex-labeled directed graph \textit{G} in (Figure \ref{fig:directedGraph_logical}) \cite{Bai:2000:TSA:357352}.
 
 Instead of storing $|V|^2$ elements in the adjacency matrix, the compressed sparse row (CSR) format is consuming much less storage by storing only $nnz + |V| + 1$ elements, where $nnz$ is the number of non-zero elements in the matrix \cite{Bai:2000:TSA:357352}. Although the compressed sparse row (CSR) format is offering a contiguous memory allocation of the graph data compacted in two vectors, a manipulation by adding or removing elements to CSR is expensive. Because the order of elements stored in the two vectors \textit{(col\_ind,row\_ptr)} must always be maintained, a manipulation to the CSR data implies a reorganization of the elements in the vectors to maintain their elements order.
 
@@ -207,7 +207,7 @@ The adjacency list \textit{Adj} of a graph \textit{G = (V,E)} is composed of a s
 
 Adjacency lists is memory efficient in storing sparse graphs by storing only information that indicates the existence of an edge. Adjacency lists keeps the adjacencies vector $K$ of each vertex ordered for efficient look-up operations. Adding or removing a vertex to/from $K$ requires a reorganization of the elements in the vector to maintain the elements order. The overhead of reorganizing the elements in $K$ is proportional to the size of $K$ which is less when compared to the similar overhead in CSRs that is proportional to $|V|$ \cite{van1998python}.
 
-In (Figure \ref{fig:directedGraph_logical}), we show an example of a directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjLst_logical}), we show the adjacency list logical representation of \textit{G} \cite{cormen2009introduction}. 
+In (Figure \ref{fig:directedGraph_logical}), we show an example of a vertex-labeled directed graph \textit{G} that is consisted of 6 vertices and 8 edges. In (Figure \ref{fig:adjLst_logical}), we show the adjacency list logical representation of \textit{G} \cite{cormen2009introduction}. 
 
 The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \cite{cormen2009introduction}.
 
@@ -219,19 +219,19 @@ The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \
 
 \begin{figure}[H]
 \centering
-    \subfigure[An attributed property graph \textit{G}.]
+    \subfigure[An attributed directed graph \textit{G} \cite{DBLP:journals/corr/ParadiesLB14}.]
     {
         \includegraphics[width=1\textwidth]{pics/PropertyGraph.png}
         \label{fig:PropertyGraph}
     }
 \centering
-    \subfigure[Vertex universal table of \textit{G}]
+    \subfigure[Vertex universal table of \textit{G} \cite{DBLP:journals/corr/ParadiesLB14}.]
     {
         \includegraphics[width=0.45\textwidth]{pics/VertexUniversalTable.png}
         \label{fig:VertexUniTbl}
     }
 \centering
-    \subfigure[Edge universal table of \textit{G}.]
+    \subfigure[Edge universal table of \textit{G} \cite{DBLP:journals/corr/ParadiesLB14}.]
     {
         \includegraphics[width=0.5\textwidth]{pics/EdgeUniversalTable.png}
         \label{fig:EdgeUniTbl}
@@ -248,7 +248,7 @@ The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \
         \includegraphics[width=0.5\textwidth]{pics/EdgeEmergingSchema.png}
         \label{fig:EdgeEmergingSchema}
     }
-    \caption{Universal table and emerging schema representations of a property graph \textit{G}. \cite{DBLP:journals/corr/ParadiesLB14}.}
+    \caption{Universal table and emerging schema representations of a property graph \textit{G}.}
     \label{fig:GraphProperties_logical}
 \end{figure}
 
@@ -262,61 +262,66 @@ In this section, we introduce three data structures that can be utilized by grap
 \subsubsection{Universal Table}
 \label{subsubsec:UniversalTable}
 
-Universal tables is a method of storing the vertices and edges properties in only two tables. Each vertex is represented by a single row in the vertex universal table. Similarly, each edge is represented by a single row in the edge universal table. A column in the universal table is representing a distinct object's property. For an object's row in a universal table, a null value assigned to one of the object's columns means that the property represented by this column is not applicable to that object \cite{Paradies2017}.
+Universal tables is a method of storing the vertices and edges properties in only two tables. Each object (vertex or edge) is represented by a single row in the respective universal table. A column in the universal table is representing a distinct object's property. A null value in in the universal table means that the property represented by the referenced column is not applicable to that object stored in the respective row \cite{Paradies2017}.
 
-Vertices and edges can have a distinct high number of properties which only a few of those properties are applicable to a specific vertex or edge. The in-applicability of all properties to every vertex or edge leads to a degree of sparseness in the universal table \cite{Paradies2017}.
+Vertices and edges can have a high number of distinct properties, where only a few of those properties are applicable to a specific vertex or edge. The in-applicability of all properties to all vertices or edges leads to a degree of sparseness in universal table. Sparseness can be a problem in storing large graphs by consuming more memory. However, the storage of an object (vertex or edge) in a single row allows for a join-free method to extract an object's properties \cite{Paradies2017}.
 
-The storage of an object (vertex or edge) in a single row allow for a join-free method to extract an object's properties \cite{Paradies2017}.
-
-In (Figure \ref{fig:PropertyGraph}), we show an example of a property graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexUniTbl}), we present a vertex universal table for $G$, where each single vertex in $G$ is represented by a single row and each distinct vertex property is represented by a separate column. Similarly, in (Figure \ref{fig:EdgeUniTbl}), we present an edge universal table for $G$, where each single edge in $G$ is represented by a single row and each distinct edge property is represented by a separate column \cite{Paradies2017}.
+In (Figure \ref{fig:PropertyGraph}), we show an example of an attributed directed graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexUniTbl}), we show a vertex universal table representing $G$, where each single vertex in $G$ is represented by a single row and each distinct vertex property is represented by a separate column. Similarly, in (Figure \ref{fig:EdgeUniTbl}), we show an edge universal table of $G$, where each single edge in $G$ is represented by a single row and each distinct edge property is represented by a separate column. Question marks in the tables denotes absence of a value (i.e. a null value) \cite{Paradies2017}.
 
 
 \subsubsection{Emerging Schema}
 \label{subsubsec:EmergingSchema}
 
-In (\ref{subsubsec:UniversalTable}), we have discussed a simple method of storing an attributed graph using only a pair of universal tables, a vertex universal table and an edge universal table. The universal table method is subject to one drawback as it tends to be more sparse as the number of distinct attributes increase.
+In (\ref{subsubsec:UniversalTable}), we have discussed a simple method of storing an attributed graph using only a pair of universal tables, a vertex universal table and an edge universal table. The universal table method is subject to a drawback as it tends to be more sparse as the number of distinct properties increase.
 
-Emerging schema is a method that applies vertical partitioning on the properties of vertices/edges in a way that reduces the sparseness of the data and at the same time doesn't require the joining of many tables to extract a single object's properties. The emerging schema method is exploring the inherent schema in the data to create a set of column groups for vertices and another set of column groups for edges. 
+Emerging schema is a method that applies vertical partitioning on the properties of objects (vertices or edges) in a way that reduces the sparseness of the data stored and at the same time doesn't require the joining of many tables to extract a single object's properties. The emerging schema method is exploiting the inherent schema of the data to create a set of column groups for vertices and another set of column groups for edges. 
 
-One column group is consisted of multiple columns where the first column is always representing the unique object's identifier. In addition to the object's identifier column, properties that co-occur frequently together are clustered into the same column group \cite{Paradies2017}.
+Each column group is consisted of multiple columns where the first column is always representing the unique object's label. In addition to the object's label column, properties that co-occur frequently together are clustered into the same column group. An object can be represented by a row in one or more of the column groups. An object is represented by a row in a specific column group, only if the object has at least one property represented by a column in the respective column group. Objects with no descriptive properties are grouped together into a default column group \cite{Paradies2017}.
 
-The clustering of the property attributes into column groups can be done by applying machine learning clustering algorithms such as k-means \cite{Paradies2017}. The input to the clustering algorithm is the set of distinct columns from all vertices (or edges). Each attribute is considered an $n-dimension$ point, where $n$ is the number of vertices or edges to be clustered and the value for each dimension is "1" in case a non-null value and "0" in case of a null value.
+The clustering of properties into column groups can be done by applying machine learning clustering algorithms such as k-means on the data in the universal table \cite{macqueen1967,Paradies2017}. The input to the clustering algorithm is the data stored in the universal table. Each column in the universal table is considered an $n-dimension$ point provided to the clustering algorithm, where $n$ is the number of rows in the table and the value for each dimension is "1" in case a non-null value and "0" in case of a null value. 
 
-In (Figure \ref{fig:PropertyGraph}), we show an example of a property graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexEmergingSchema}), we present the vertex column groups for $G$ that is produced by the emerging schema method. A single vertex in $G$ can be represented in more than one of the resulted vertex column groups. Similarly, in (Figure \ref{fig:EdgeEmergingSchema}), we present the edge column groups for $G$ that is produced by the emerging schema method. A single edge in $G$ can be represented in more than one of the resulted edge column groups \cite{Paradies2017}.
+Clustering is applied once on the vertex universal table and once on the edge universal table. A single object's (vertex or edge) row is constructed from the resulted column groups by joining them over the object-label column.
+
+In (Figure \ref{fig:PropertyGraph}), we show an example of an attributed directed graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexEmergingSchema}), we present the vertex column groups for $G$ that is produced by the emerging schema method. Similarly, in (Figure \ref{fig:EdgeEmergingSchema}), we present the edge column groups for $G$ that is produced by the emerging schema method. Question marks in the column groups denotes absence of a value (i.e. a null value) \cite{Paradies2017}. 
+
+Even though graph $G$ is attributed, it is not explicitly defining an identifying label for each object. For storing the graph data in a universal table, an identifying label must be defined for each vertex and edge. The property $"id"$ that describes the vertices is appearing to have a unique value for each vertex and hence we have used it to act as the vertex-label. For edges, we have found three properties that we can use to uniquely identify each edge. The three properties are the $"id"$ property of the source vertex, the $"id"$ property of the target vertex, and the $"type"$ property of an edge. The concatenation of the three properties is acting as the edge-label.
 
 
 \subsubsection{Nested Key-Value Store}
 \label{subsubsec:NestedkeyValueStore}
 
-In this section, we are presenting another approach for solving the sparseness problem of universal tables discuss in (\ref{subsubsec:UniversalTable}).
+In this section, we are presenting another approach for solving the sparseness problem of universal tables we discussed in (\ref{subsubsec:UniversalTable}).
 
-Graph properties are composed of vertices-properties and edges-properties. The properties of a vertex/edge are consisted of key-value pairs that describe the vertex/edge. In a given vertex-attributed and edge-attributed graph $G = (V,E)$, for each vertex $u \in V$ and edge $x \in E$, a set $P$ of key-value pairs exists. Each key-value pair $(k,v) \in P$, is consisted of a property $k$ that describes the vertex/edge and a value $v$ that is assigned to $k$ \cite{ladwig2011cumulusrdf}.
+Graph properties are composed of vertices-properties and edges-properties. The properties of an object (vertex or edge) are consisted of key-value pairs that describe the object. In a given vertex-attributed and edge-attributed graph $G = (V,E)$, for each vertex $u \in V$ and edge $x \in E$, a set $P$ of key-value pairs exists. Each key-value pair $(k,v) \in P$, is consisted of a property $k$ that describes the object and a value $v$ that is assigned to $k$ \cite{ladwig2011cumulusrdf}.
 
-Nested key-value stores are storing an object's (vertex or edge) properties in a two level nested key-value stores. The first level of the store is representing rows, where each object is stored in a row. The object's row is represented by a key-value pair, where the key is a unique identifier for the object and the value is itself a second level of a key-value store. The key-value store on the second level is to represent columns, where each object's property is stored in a column. Each column is represented by a key-value pair, where the key is the name of the property describing the object and the value is a string of characters \cite{ladwig2011cumulusrdf}.
+Nested key-value stores are storing an object's properties in a two level nested key-value stores. The first level of the store is representing rows, where each object is stored in a row. The object's row is represented by a key-value pair, where the key is the object-label and the value is itself a second level of a key-value store. The key-value store on the second level is to represent columns, where each object's property is stored in a column. Each column is represented by a key-value pair, where the key is the name of the property describing the object and the value is a string of characters \cite{ladwig2011cumulusrdf}.
 
-A vertex is identified by a unique id  that is assigned to the vertex, while an edge is identified by the edge's source and target vertices as well as the edge label in the case of a multi-graph. We store the properties of the vertices in one nested key-value store separated from another nested key-value store that we use for the storage of the properties of the edges.
+Sparseness problem of universal tables is eliminated in the nested key-value store by storing only the values for the properties that are applicable for a given vertex or edge. In this way, the size of the second level of key-value store for each row is equal to the number of non-empty properties describing the respective vertex or edge. We store the properties of the vertices in one nested key-value store separated from another nested key-value store that we use for the storing the edges properties.
 
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=15cm]{pics/NestedKey-ValueStore.png}
 \caption{A nested key-value store composed of rows and columns \cite{ladwig2011cumulusrdf}.}
-\label{fig_nestedKey-ValueStore}
+\label{fig:nestedKey-ValueStore}
 \end{figure} 
 
-In (\ref{fig_nestedKey-ValueStore}), we show a diagram of a nested key-value store that is composed of rows and columns. On the first level of the store rows are stored while columns are stored in the second level of the store \cite{ladwig2011cumulusrdf}.
+Storing the property name together with its value in the nested key-value store, makes any modifications to the property name needs to be applied to each row in the entire nested key-value store. Also, as the sparseness of the data represented in the universal table is decreased, the memory requirements to store the property name redundantly in every row will increase.
 
-The nested key-value store is searched for an object's row using the object's identifier $(k)$ and the value returned is the object's columns $(c)$. The object's columns $(c)$ are searched for a specific column or property to return the value $(v)$ of that column \cite{ladwig2011cumulusrdf}.
+In (\ref{fig:nestedKey-ValueStore}), we show a diagram of a nested key-value store that is composed of rows and columns. On the first level of the store, rows are stored, while columns are stored in the second level of the store \cite{ladwig2011cumulusrdf}.
+
+The nested key-value store is searched for an object's row using the object-label $(k)$ and the value returned is the object's columns $(c)$. The object's columns $(c)$ are searched for a specific column or property to return the value $(v)$ of that column \cite{ladwig2011cumulusrdf}.
 
 
 
 
-%\section{Data Structures in C++}
-%\label{sec:DataStructuresInC++}
+\section{Data Structures in C++}
+\label{sec:DataStructuresInC++}
 
-%\subsection{Vector}
-%\subsection{Map}
-%\subsection{Unordered Map}
+\subsection{\texttt{std::vector}}
+\subsection{\texttt{std::map}}
+\subsection{\texttt{std::unordered\_map}}
+\subsection{\texttt{std::pair}}
 
 \section{Summary}
 \label{sec:BackgroundSummary}

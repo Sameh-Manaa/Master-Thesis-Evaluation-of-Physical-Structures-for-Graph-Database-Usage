@@ -79,12 +79,17 @@
 %*********************************************************************%
 \pgfplotsset{compat=1.14}
 
-\usepackage{multirow}
+\usepackage[utf8]{inputenc}
 \usepackage{lscape}
 \usepackage{longtable}
 \usepackage{graphicx,subfigure}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{listings}
+\usepackage{color}
 
 \begin{document}
 
@@ -131,6 +136,10 @@
 
 		\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
 		\blankpage
+		
+		
+		
+		
 		\lstlistoflistings
 		\addcontentsline{toc}{chapter}{\lstlistlistingname}
 

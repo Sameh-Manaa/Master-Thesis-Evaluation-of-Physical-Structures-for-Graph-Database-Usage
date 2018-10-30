@@ -1,7 +1,7 @@
 {\chapter{Evaluation Environment}
 \label{chap:Eval_4}
 
-In (\ref{chap:PhysicalDesign}), we have introduced the physical design of a set of graph data structures. We have complemented the implementation of the graph data structures with other components in order to set up a complete environment for evaluating the behaviour of the graph data structures in different scenarios. 
+In (\ref{chap:PhysicalDesign}), we introduced the physical design of a set of graph data structures. We complemented the implementation of the graph data structures with other components in order to set up a complete environment for evaluating the behaviour of the graph data structures in different scenarios. 
 
 In this chapter, we introduce the details of every component in the evaluation environment which we will use to evaluate our implemented graph data structures. This chapter is consisted of the following sections:
 
@@ -11,16 +11,16 @@ In this chapter, we introduce the details of every component in the evaluation e
 In \ref{sec:techEnv}, we detail the specifications of the technical environment that we use to test the performance of loading and querying the graph data structures. 
 
 \item \textbf{Evaluation Dataset:}\\
-In this section, we present the dataset we used to evaluate the performance of the graph data structures. (\ref{sec:dataset})
+In this section, we present the dataset we used to evaluate the performance of the graph data structures (\ref{sec:dataset}).
 
 \item \textbf{Data Loader:}\\
-Next, we present the data loader component that we utilize for loading the data into the graph data structures. (\ref{sec:dataLoader})
+Next, we present the data loader component that we utilize for loading the data into the graph data structures (\ref{sec:dataLoader}).
 
 \item \textbf{Queries:}\\
 In (\ref{sec:qryDef}), we define a set of queries that we perform against the data which we loaded into the graph data structures.
 
 \item \textbf{Summary:}\\
-Lastly, we provide a summary for what we discussed in the chapter. (\ref{sec:Eval4-summary})
+Lastly, we provide a summary for what we discussed in the chapter (\ref{sec:Eval4-summary}).
 
 \end{itemize}
 
@@ -30,7 +30,7 @@ Lastly, we provide a summary for what we discussed in the chapter. (\ref{sec:Eva
 
 In this section, we list the specifications of the technical hardware and software we used to implement, test and evaluate the graph data structures.
 
-Following are the details of the programming language we have used in implementation:
+Following are the details of the programming language we used in implementation:
 
 \begin{itemize}
 \item Programming language: \texttt{C++}
@@ -61,7 +61,7 @@ Lastly, we list the hardware specifications of the test and evaluation machine b
 \section{Evaluation Dataset}
 \label{sec:dataset}
 
-For evaluating the implemented graph data structures, we have used a dataset that we have generated using the \textit{Linked Data Benchmark Council} (LDBC) - \textit{Social Network Benchmark} (SNB) framework \cite{boncz2013ldbc, prat2017ldbc}.
+For evaluating the implemented graph data structures, we used a dataset that we generated using the \textit{Linked Data Benchmark Council} (LDBC) - \textit{Social Network Benchmark} (SNB) framework \cite{boncz2013ldbc, prat2017ldbc}.
 
 \begin{figure}[hbtp]
 \centering
@@ -75,7 +75,7 @@ The Linked Data Benchmark Council (LDBC) is an independent non-profit company wh
 The LDBC - Social Network Benchmark (SNB) framework is providing a data generator that generates a synthetic
 social network data. The data generator produces networks with described schema with distributions and correlations similar to those expected in a real social network. The schema represents a realistic social network, including people and their activities in the social network during a period of time. In (\ref{fig:LDBC-DataModel}), we show a UML diagram for the data model of the LDBC - SNB generated data \cite{prat2017ldbc}.
 
-We have used the LDBC - SNB data generator to generate datasets with different sizes. All the generated datasets are of the same schema shown in (\ref{fig:LDBC-DataModel}). The size of the dataset generated is depending on two parameters provided to the data generator: the number of persons and the number of years. We have generated datasets of different sizes by changing the parameter value of the number of persons while fixing the number of years parameter value. The generated datasets size and parameters are shown in (\ref{tbl:LDBC-DatsetsScales}). We have assigned each generated dataset a scale factor. A scale factor is an indicator of the value of the "\textit{number of persons}" parameter we have used to generate the dataset. For example, a dataset with scale factor 0.25 was generated with a "\textit{number of persons}" parameter of 2500 and a dataset with scale factor 0.5 was generated with a "\textit{number of persons}" parameter of 5000. Similarly, we have assigned scale factors to the other generated datasets \cite{prat2017ldbc}.
+We used the LDBC - SNB data generator to generate datasets with different sizes. All the generated datasets are of the same schema shown in (\ref{fig:LDBC-DataModel}). The size of the dataset generated is depending on two parameters provided to the data generator: the number of persons and the number of years. We generated datasets of different sizes by changing the parameter value of the number of persons while fixing the number of years parameter value. The generated datasets size and parameters are shown in (\ref{tbl:LDBC-DatsetsScales}). We assigned each generated dataset a scale factor. A scale factor is an indicator of the value of the "\textit{number of persons}" parameter we used to generate the dataset. For example, a dataset with scale factor 0.25 was generated with a "\textit{number of persons}" parameter of 2500 and a dataset with scale factor 0.5 was generated with a "\textit{number of persons}" parameter of 5000. Similarly, we assigned scale factors to the other generated datasets \cite{prat2017ldbc}.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -182,15 +182,15 @@ Each thread uses a buffer for temporary storage of data. The buffer size is the 
 \section{Queries}
 \label{sec:qryDef}
 
-In (\ref{sec:dataLoader}, we have presented the data loader component which we utilized in order to load the evaluation dataset into the graph data structures. In this section, we present the definition of a set of queries as another component of the evaluation environment. We will use the set of queries presented in this section to evaluate the graph data structures performance in executing each query. 
+In (\ref{sec:dataLoader}, we presented the data loader component which we utilized in order to load the evaluation dataset into the graph data structures. In this section, we present the definition of a set of queries as another component of the evaluation environment. We will use the set of queries presented in this section to evaluate the graph data structures performance in executing each query. 
 
-We present the definition of three different in (\ref{subsec:qry1}, \ref{subsec:qry2}, and \ref{subsec:qry3}). We will define each of the steps required to execute each query and the format of the output that we expect to receive.
+We present the definition of three different queries in (\ref{subsec:qry1}, \ref{subsec:qry2}, and \ref{subsec:qry3}). We will define each of the steps required to execute each query and the format of the output that we expect to receive.
 
 The two queries presented in (\ref{subsec:qry1} and \ref{subsec:qry2}) are pattern-matching queries. A pattern matching query is defined as a set of patterns that needs to be matched against the graph elements (vertices and edges) in order to retrieve all elements that match the given pattern.
 
 The query presented in (\ref{subsec:qry3}) is a degree centrality query. In this query we are not matching the graph elements against given patterns, but we are computing the a degree centrality of each vertex in a graph. The degree centrality of a vertex is computing how many edges (incoming and outgoing) the vertex has. The output of the query is a summary report of the degree centrality of all the vertices in the given graph.
 
-\subsection{Query \#1}
+\subsection{Definition: Query \#1}
 \label{subsec:qry1}
 
 The query we present in this section (Query \#1) was introduced as part of the business intelligence workload in the LDBC - Social Network Benchmark (SNB) specification. The query is given the code (\textit{BI 1}) in the specification \cite{prat2017ldbc}. 
@@ -245,7 +245,7 @@ Lastly the result set is sorted in the following order \cite{prat2017ldbc}:
 \end{enumerate}
 
 
-\subsection{Query \#2}
+\subsection{Definition: Query \#2}
 \label{subsec:qry2}
 
 The query presented in this section (Query \#2) was introduced as part of the business intelligence workload in the LDBC - Social Network Benchmark (SNB) specification. The query is given the code (\textit{BI 18}) in the specification \cite{prat2017ldbc}. 
@@ -277,13 +277,13 @@ The query counts a "\textit{Message}" only if the message's properties match the
     
 \end{itemize}
 
-Next, we group the result set by the "\textit{messageCount}" computed attribute, so that for each unique "\textit{messageCount}", the number of persons who have created the same "\textit{messageCount}" of messages are counted \cite{prat2017ldbc}.
+Next, we group the result set by the "\textit{messageCount}" computed attribute, so that for each unique "\textit{messageCount}", the number of persons who created the same "\textit{messageCount}" of messages are counted \cite{prat2017ldbc}.
 
 The final result set of the query will be consisted of the following attributes \cite{prat2017ldbc}:
 
 \begin{enumerate}
 \item "\textit{messageCount}": Number of messages a "\textit{Person}" has created.
-\item "\textit{personCount}": Number of persons who have created the same number of messages "\textit{messageCount}".
+\item "\textit{personCount}": Number of persons who created the same number of messages "\textit{messageCount}".
 
 \end{enumerate}
 
@@ -296,10 +296,10 @@ Lastly the result set is sorted in the following order \cite{prat2017ldbc}:
 
 \end{enumerate}
 
-\subsection{Query \#3}
+\subsection{Definition: Query \#3}
 \label{subsec:qry3}
 
-In (\ref{subsec:qry1} and \ref{subsec:qry2}), we have introduced the definition of two pattern-matching queries. In this section, we present the definition of the last query. Query \#3 is different from the other two queries (Query \#1 and Query \#2) in that Query \#3 is computing a degree centrality report rather than performing a pattern-matching on the given graph. 
+In (\ref{subsec:qry1} and \ref{subsec:qry2}), we introduced the definition of two pattern-matching queries. In this section, we present the definition of the last query. Query \#3 is different from the other two queries (Query \#1 and Query \#2) in that Query \#3 is computing a degree centrality report rather than performing a pattern-matching on the given graph. 
 
 A degree centrality of a vertex is the number of edges going out from the vertex as well as the number of edges going in to the vertex \cite{newman2008mathematics}. We extend this definition to include the edge-label that identifies each edge in a multi-graph. We  define the degree centrality of a vertex in a directed labeled multi-graph as the number of edges going out from the vertex as well as the number of edges going in to the vertex per an edge-label. 
 
@@ -329,7 +329,9 @@ Lastly the result set is sorted in the following order:
 \section{Summary}
 \label{sec:Eval4-summary}
 
-In this chapter, we presented all components in the evaluation environment which we will use to evaluate our implemented graph data structures. We introduced the specifications of the technical environment that we use to test the performance of loading and querying the graph data structures. We presented the dataset we used to evaluate the performance of the graph data structures as well as the data loader component that we utilize for loading the evaluation dataset into the graph data structures. lastly, we presented the definition of a set of queries that we perform against the data which we loaded into the graph data structures.
+In this chapter, we presented all components in the evaluation environment which we will use to evaluate our implemented graph data structures. We introduced the specifications of the technical environment that we use to test the performance of loading and querying the graph data structures. 
+
+We presented the dataset we used to evaluate the performance of the graph data structures as well as the data loader component that we utilize for loading the evaluation dataset into the graph data structures. lastly, we presented the definition of a set of queries that we perform against the data which we loaded into the graph data structures.
 
 In next chapter, we present the first part of our evaluation results, with which we will answer the evaluation questions number 1, 2, and 3 stated in (\ref{sec:EvalQuests}).
 

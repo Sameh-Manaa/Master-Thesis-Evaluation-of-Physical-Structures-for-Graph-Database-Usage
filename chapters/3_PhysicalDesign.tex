@@ -19,7 +19,7 @@ In (\ref{sec:PhyDesign-ParallelGraphStructs}), we present the physical design of
 Next, we present a method for partitioning the graph topology in order to support an edge-labeled multi-graph in (\ref{sec:PhyDesign-GraphPartitioning}).
 
 \item \textbf{Summary:}\\
-Finally, we provide a summary the main topics we discussed in this chapter in (\ref{sec:PhyDesign-Summary}).
+Finally, we provide a summary of the main topics we discussed in this chapter in (\ref{sec:PhyDesign-Summary}).
 \end{itemize}
 
 
@@ -29,7 +29,7 @@ Finally, we provide a summary the main topics we discussed in this chapter in (\
 
 A set of data structures has been developed over time for the purpose of efficient storage and processing of graph data. Although, all the graph data structures can perform the same tasks, their performance is highly dependent on the characteristics of the data as well as the kind of computation performed on this data \cite{Paradies2017}.
 
-In a survey performed by (\textit{Sahu et al.}), the authors have mentioned a list of challenges for processing a graph. On top of the list of challenges came scalability. The scalability of loading, updating and performing computations on a large graph is the most prevalent issue challenge for graph processing systems \cite{sahu2017ubiquity}.
+In a survey performed by (\textit{Sahu et al.}), the authors mentioned a list of challenges for processing a graph. On top of the list of challenges came scalability. The scalability of loading, updating and performing computations on a large graph is the most prevalent issue challenge for graph processing systems \cite{sahu2017ubiquity}.
 
 In this thesis we are going to answer a set of evaluation questions that focuses on the effect of the use of a specific data structure for storing graph data on the performance. Following are the concrete set of evaluation questions we aim to answer in this thesis:
 
@@ -39,6 +39,7 @@ In this thesis we are going to answer a set of evaluation questions that focuses
 %We agreed that the results reducing files are Ok for SF1. But we also want changes in SFs, such that we really can compare scales. We hope 0.1, 0.5... And being evil, I would even suggest 5 and 10. 
 %Suggestion for writing Q1 differently: How do the execution time for loading data, and the memory footprint, scale for the different data structures when they need to accommodate larger data sizes (i.e. higher number of vertices and/or edges)? 
 \item What is the impact of loading the data in large versus small batches, for the different graph data structures, on the performance on this task?
+
 \item What change in the data loading time, could processing the data in parallel introduce in comparison to sequential processing?
 %We will test only with one data structure. And we agree on this. But we need to make a good argument why we choose this data structure, and also why just one. 
 %Data sizes perhaps (but here we can prune and maybe only have 3 sizes)
@@ -53,11 +54,11 @@ In this thesis we are going to answer a set of evaluation questions that focuses
 %Pointer to help you elaborate the questions for queries: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.721.9607&rep=rep1&type=pdf
 \end{enumerate}
 
-For answering the above set of questions, we implemented the graph data structures previously introduced in (\ref{sec:StorageStructures}). We have used \textit{C++} as the programming language for our implementation. We utilized the standard \textit{C++} data structures library (\textit{Standard Template Library (STL)}) for building up the graph data structures (for more information on \textit{C++} or $STL$, see \cite{josuttis2012c++}). 
+For answering the above set of questions, we implemented the graph data structures previously introduced in (\ref{sec:StorageStructures}). We used \textit{C++} as the programming language for our implementation. We utilized the standard \textit{C++} data structures library (\textit{Standard Template Library (STL)}) for building up the graph data structures (for more information on \textit{C++} or $STL$, see \cite{josuttis2012c++}). 
 
-In (\ref{sec:PhyDesign-GraphTopology}, \ref{sec:PhyDesign-GraphProperties}, \ref{sec:PhyDesign-ParallelGraphStructs}, and \ref{sec:PhyDesign-GraphPartitioning}), we present the detailed physical design for the different implemented graph data structures. We have implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage. 
+In (\ref{sec:PhyDesign-GraphTopology}, \ref{sec:PhyDesign-GraphProperties}, \ref{sec:PhyDesign-ParallelGraphStructs}, and \ref{sec:PhyDesign-GraphPartitioning}), we present the detailed physical design for the different implemented graph data structures. We implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage. 
 
-In (\ref{chap:Eval_4} and \ref{chap:Eval_5}), we present the evaluation results of tests we have executed on our implemented graph data structures. Also, we present answers for the above mentioned evaluation questions based on the findings from the evaluation tests.
+In (\ref{chap:Eval_4} and \ref{chap:Eval_5}), we present the evaluation results of tests we executed on our implemented graph data structures. Also, we present answers for the above mentioned evaluation questions based on the findings from the evaluation tests.
 
 
 \begin{figure}[H]
@@ -101,7 +102,7 @@ In (\ref{chap:Eval_4} and \ref{chap:Eval_5}), we present the evaluation results 
 
 In (\ref{sec:EvalQuests}), we introduced a set of evaluation questions that we aim to answer in this thesis. In this section, we present the physical design of graph topology data structures we implemented , which we later will execute a set of evaluation tests on to find answers for the evaluation questions.
 
-We have used the \textit{C++} programming language in the implementation of the data structures. We have utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We have implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage \cite{josuttis2012c++}.
+We used the \textit{C++} programming language in the implementation of the data structures. We utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage \cite{josuttis2012c++}.
 
 Following, we present the physical design of three graph topology data structures (adjacency matrix, compressed sparse row (CSR), and adjacency list) in (\ref{subsec:PhyDesign-AdjacencyMatrix}, \ref{subsec:PhyDesign-CSR}, and \ref{subsec:PhyDesign-AdjacencyList}) respectively.
 
@@ -110,7 +111,7 @@ Following, we present the physical design of three graph topology data structure
 \subsection{Adjacency Matrix}
 \label{subsec:PhyDesign-AdjacencyMatrix}
 
-In (\ref{subsubsec:AdjacencyMatrix}), we have presented the necessary background knowledge on adjacency matrices. We have discussed the logical design, suitable usage scenarios, and the memory requirements of the adjacency matrix data structure. We will present in this section our physical design of adjacency matrix.
+In (\ref{subsubsec:AdjacencyMatrix}), we presented the necessary background knowledge on adjacency matrices. We discussed the logical design, suitable usage scenarios, and the memory requirements of the adjacency matrix data structure. We will present in this section our physical design of adjacency matrix.
 
 %Elements in (\texttt{std::vector}) are placed in sequence and are accessed using their index. The (\texttt{std::vector}) allocates its elements in consecutive memory locations which offers better data locality. Also, (\texttt{std::vector})'s are able to dynamically re-size to store new data. Those three characteristics have made (\texttt{std::vector}) the best choice for the design of adjacency matrix \cite{josuttis2012c++}.
 
@@ -129,7 +130,7 @@ In (Figure \ref{fig:AdjMat_phy}), we show an example of the adjacency matrix phy
 \subsection{Compressed Sparse Row (CSR)}
 \label{subsec:PhyDesign-CSR}
 
-In (\ref{subsubsec:CSR}), we have presented the necessary background knowledge on the compressed sparse row (CSR) structure. We have discussed the logical design, suitable usage scenarios, and the memory requirements of CSR. We will present in this section our physical design of the compressed sparse row (CSR).
+In (\ref{subsubsec:CSR}), we presented the necessary background knowledge on the compressed sparse row (CSR) structure. We discussed the logical design, suitable usage scenarios, and the memory requirements of CSR. We will present in this section our physical design of the compressed sparse row (CSR).
 
 %For constructing the compressed sparse row (CSR) we needed a data structure that is able to place elements in a sequence with access to the elements using their position, store the elements in consecutive memory locations for better data locality, and offers a dynamic size feature for accommodating new data. The (\texttt{std::vector}) data structure is matching the needed requirements and hence we choose it for the physical design of CSR. Although the complexity of search in (\texttt{std::vector}) is $O(n)$, it provides a complexity of $O(1)$ when accessing a specific index \cite{josuttis2012c++}.
 
@@ -147,7 +148,7 @@ In (Figure \ref{fig:CSR_phy}), we show an example of the compressed sparse row (
 \subsection{Adjacency List}
 \label{subsec:PhyDesign-AdjacencyList}
 
-In (\ref{subsubsec:AdjacencyList}), we have presented the necessary background knowledge on adjacency lists. We have discussed the logical design, suitable usage scenarios, and the memory requirements of the adjacency list data structure. We will present in this section our physical design of the adjacency list.
+In (\ref{subsubsec:AdjacencyList}), we presented the necessary background knowledge on adjacency lists. We discussed the logical design, suitable usage scenarios, and the memory requirements of the adjacency list data structure. We will present in this section our physical design of the adjacency list.
 
 %Adjacency list logical design is storing the topology of a graph $G = (V,E)$ as a set of |$V$| pairs, where each pair is consisted of a vertex $u$ as the key and the value is a vector $K$ that contains the adjacencies of $u$. We constructed the adjacency list using the (\texttt{std::map}) data structure in $C++$. The (\texttt{std::map}) data structure provides a rich interface to manage key-value pairs. The (\texttt{std::map}) data structure is usually implemented as a binary tree providing a complexity of $O(log (n))$ on searching for an element. The underlying binary tree in (\texttt{std::map}) is providing the ability to dynamically expand with less overhead of reorganizing the elements when compared to other key-value store data structures(e.g. the static hash-table based data structures) \cite{josuttis2012c++}.
 
@@ -164,9 +165,9 @@ In (Figure \ref{fig:adjLst_logical}), we show an example of the adjacency list p
 
 In (\ref{sec:PhyDesign-GraphTopology}), we presented the physical design of graph topology data structures. In this section, we proceed with the introduction of our physical design for more graph data structures. we present the physical design of graph properties.
 
-We continue using the \textit{C++} programming language in the implementation of the data structures. We have utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We have implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage (for more information on \textit{C++} or $STL$, see \cite{josuttis2012c++}).
+We continue using the \textit{C++} programming language in the implementation of the data structures. We utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage (for more information on \textit{C++} or $STL$, see \cite{josuttis2012c++}).
 
-We will use the attributed directed graph $G$ in (\ref{fig:PropertyGraph_physical}), to showcase an example of the physical representation of the properties describing each vertex or edge in $G$. Even though graph $G$ is attributed, it is not explicitly defining an identifying label for each object. The property $"id"$ that describes the vertices is appearing to have a unique value for each vertex and hence we have used it to act as the vertex-label. For edges, we have found three properties that we can use to uniquely identify each edge. The three properties are the $"id"$ property of the source vertex, the $"id"$ property of the target vertex, and the $"type"$ property of an edge. The concatenation of the three properties is acting as the edge-label.
+We will use the attributed directed graph $G$ in (\ref{fig:PropertyGraph_physical}), to showcase an example of the physical representation of the properties describing each vertex or edge in $G$. Even though graph $G$ is attributed, it is not explicitly defining an identifying label for each object. The property $"id"$ that describes the vertices is appearing to have a unique value for each vertex and hence we used it to act as the vertex-label. For edges, we found three properties that we can use to uniquely identify each edge. The three properties are the $"id"$ property of the source vertex, the $"id"$ property of the target vertex, and the $"type"$ property of an edge. The concatenation of the three properties is acting as the edge-label.
 
 Following, we present the physical design of the three graph properties data structures (universal table, emerging schema, and nested key-value store) in (\ref{subsec:PhyDesign-UniversalTable}, \ref{subsec:PhyDesign-EmergingSchema}, and \ref{subsec:PhyDesign-NestedStore}) respectively.
 
@@ -219,7 +220,7 @@ Following, we present the physical design of the three graph properties data str
 \subsection{Universal Table}
 \label{subsec:PhyDesign-UniversalTable}
 
-In (\ref{subsubsec:UniversalTable}), we have presented the necessary background knowledge on universal tables. We have discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the universal table data structure. In this section, we will present our physical design of the universal table.
+In (\ref{subsubsec:UniversalTable}), we presented the necessary background knowledge on universal tables. We discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the universal table data structure. In this section, we will present our physical design of the universal table.
 
 We constructed the universal table physically using the (\texttt{std::map}) data structure in $C++$. We represent each row in the universal table using a single key-value pair in the (\texttt{std::map}).  We use the label of the object (vertex or edge) as the row key, and a (\texttt{std::vector}) that contains the rest of the values to represent the row value. Vertex universal table is physically represented by one (\texttt{std::map}), while the edge universal table is represented by another (\texttt{std::map}). The header of the universal table is stored in a separate data structure of type (\texttt{std::unordered\_map}), where each property name is linked to the property's index in each of the (\texttt{std::vector})'s in the respective universal table.
 
@@ -229,7 +230,7 @@ In (\ref{fig:UniversalTable_physical}), we show the universal table physical rep
 \subsection{Emerging Schema}
 \label{subsec:PhyDesign-EmergingSchema}
 
-In (\ref{subsubsec:EmergingSchema}), we have presented the necessary background knowledge on emerging schema. We have discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the emerging schema data structure. In this section, we will present  our physical design of the emerging schema.
+In (\ref{subsubsec:EmergingSchema}), we presented the necessary background knowledge on emerging schema. We discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the emerging schema data structure. In this section, we will present  our physical design of the emerging schema.
 
 Emerging schema is consisting of a set of column groups formed by applying a clustering algorithm on the columns of the universal table, resulting in the grouping of the columns with frequent co-occurring values together into the same column group. We constructed an emerging schema column group physically using the (\texttt{std::map}) data structure in $C++$ similar to the physical design of a universal table. We represent each row of a column group using a single key-value pair in the (\texttt{std::map}). We use the label of the object (vertex or edge) as the row key, and the rest of the values are placed in a (\texttt{std::vector}) that represents the row value. If the object-label is composed of more than one column, the values are concatenated to form a single key. Next, we assign each column group a unique column-group-id. Finally, all the key-value pairs formed from the column-group-id and its respective column group are placed into a single (\texttt{std::unordered\_map}) data structure.
 
@@ -274,7 +275,7 @@ In (\ref{fig:EmergingSchema_physical}), we show the emerging schema physical rep
 \subsection{Nested Key-Value Store}
 \label{subsec:PhyDesign-NestedStore}
 
-In (\ref{subsubsec:NestedkeyValueStore}), we have presented the necessary background knowledge on nested key-value store. We have discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the nested key-value store data structure. In this section, we will present our physical design of the nested key-value store.
+In (\ref{subsubsec:NestedkeyValueStore}), we presented the necessary background knowledge on nested key-value store. We discussed the logical design, suitable usage scenarios, advantages, and disadvantages of the nested key-value store data structure. In this section, we will present our physical design of the nested key-value store.
 
 In nested key-value stores, we store each object (vertex or edge) along with only the attributes that are applicable to this object (i.e. where a value exists). We store each object physically in the nested key-value store as a row. Each row is represented by a key-value pair, where the object-label is the row key and the row value is a container of type (\texttt{std::unordered\_map}) that contains the set of property-value pairs that describe the object. Objects with no descriptive properties are represented with a row that has an empty (\texttt{std::unordered\_map}) as a row value.
 
@@ -304,7 +305,7 @@ In (\ref{fig:NestedStore_physical}), we show the nested key-value store physical
 
 Multiprocessor computers are offering the possibility to execute multiple instructions simultaneously with a purpose of performing computing tasks in a more efficient way \cite{cormen2009introduction}. The physical design of the graph topology data structures discussed in (\ref{sec:PhyDesign-GraphTopology}) and the graph properties data structures discussed in (\ref{sec:PhyDesign-GraphProperties}), allows for only sequential operations to be done on the data structures.
 
-Multiple data access for read and write simultaneously can lead to a \textit{data race} problem. Data race is defined in the $C++$ standard as "two conflicting actions in different threads, at least one of which is not atomic, and neither happens before the other". To allow for parallel operations on the data structures, we have used the (\texttt{std::shared\_timed\_mutex}) primitive provided in the $C++$ programming language to synchronize the access to the data structures and protect them from simultaneously being modified by multiple threads \cite{josuttis2012c++}.
+Multiple data access for read and write simultaneously can lead to a \textit{data race} problem. Data race is defined in the $C++$ standard as "two conflicting actions in different threads, at least one of which is not atomic, and neither happens before the other". To allow for parallel operations on the data structures, we used the (\texttt{std::shared\_timed\_mutex}) primitive provided in the $C++$ programming language to synchronize the access to the data structures and protect them from simultaneously being modified by multiple threads \cite{josuttis2012c++}.
 
 The (\texttt{std::shared\_timed\_mutex}) primitive is providing the following four main functions in its interface \cite{josuttis2012c++}:
 \begin{itemize}  
@@ -330,7 +331,7 @@ In this section, we present a parallel version of the adjacency list data struct
 \subsection{Parallel Adjacency List}
 \label{subsec:PhyDesign-ParallelAdjacencyList}
 
-In (\ref{subsec:PhyDesign-AdjacencyList}), we have discussed our physical design of adjacency list, on which we can operate only using a single thread. In this section, we extend the physical design of the adjacency list in (\ref{subsec:PhyDesign-AdjacencyList}) to support multiple threads to operate over the data structure simultaneously in parallel. We will call the adjacency list discussed in (\ref{subsec:PhyDesign-AdjacencyList}) a single thread adjacency list.
+In (\ref{subsec:PhyDesign-AdjacencyList}), we discussed our physical design of adjacency list, on which we can operate only using a single thread. In this section, we extend the physical design of the adjacency list in (\ref{subsec:PhyDesign-AdjacencyList}) to support multiple threads to operate over the data structure simultaneously in parallel. We will call the adjacency list discussed in (\ref{subsec:PhyDesign-AdjacencyList}) a single thread adjacency list.
 
 We extended the physical design of the single thread adjacency list with a global (\texttt{std::shared\_timed\_mutex}) primitive, which we use to protect the (\texttt{std::map}) of the adjacency list against concurrent writes from multiple threads.
 
@@ -346,7 +347,7 @@ Both, the adjacency list along with the attached (\texttt{std::shared\_timed\_mu
 \subsection{Parallel Nested Key-Value Store}
 \label{subsec:PhyDesign-ParallelNestedStore}
 
-In (\ref{subsec:PhyDesign-NestedStore}), we have discussed our physical design of the nested key-value store which allows only for a single thread to operate on the data. In this section, we extend the physical design of the nested key-value store in (\ref{subsec:PhyDesign-NestedStore}) to support multiple threads to operate over the data structure simultaneously in parallel.
+In (\ref{subsec:PhyDesign-NestedStore}), we discussed our physical design of the nested key-value store which allows only for a single thread to operate on the data. In this section, we extend the physical design of the nested key-value store in (\ref{subsec:PhyDesign-NestedStore}) to support multiple threads to operate over the data structure simultaneously in parallel.
 
 Similar to the extension we made to the single thread adjacency list in order to support parallel access, we extended the physical design of the single thread nested key-value store with a global (\texttt{std::shared\_timed\_mutex}) primitive, which we use to protect the (\texttt{std::map}) of the nested store against concurrent writes from multiple threads. We used one (\texttt{std::shared\_timed\_mutex}) primitive to manage the access to the vertex nested key-value store and another (\texttt{std::shared\_timed\_mutex}) primitive to mange the access to the edge nested key-value store.
 
@@ -396,7 +397,7 @@ In (\ref{fig:GraphPartitioning_physical}), we show an example of a physical repr
 
 In this chapter, we presented a set of evaluation question that are focusing on evaluating the performance of graph data structures in different usage scenarios. We introduced our physical design for the graph topology structures as well as the graph properties structures. We presented a parallel version of the adjacency list and the nested key-value store structures as an example of parallel graph structures that allows for parallel access by multiple threads. We presented an extension to the physical design of the graph topology structures that allows the structures to store a multi-graph.
 
-In next chapter, we present the evaluation environment we have used to evaluate our implementation for the different graph structures.
+In next chapter, we present the evaluation environment we used to evaluate our implementation for the different graph structures.
 
 
 }

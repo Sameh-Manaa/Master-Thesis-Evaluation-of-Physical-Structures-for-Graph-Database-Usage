@@ -138,7 +138,7 @@ In (\ref{fig:RDF}), we show an example of an RDF graph that is consisting of 9 t
 \section{Graph Data Structures}
 \label{sec:StorageStructures}
 
-In (\ref{sec:GraphModels}), we presented two logical graph data models. First, we presented the property graph model (PGM) in (\ref{subsec:PGM}). Next, we presented the resource description framework model (RDF) in (\ref{subsec:RDF}). In \cite{Paradies2017},  the authors (\textit{Paradies et al.}) have categorized the data structures used to store graph data into two categories. First category is for the graph data structures used by graph databases for solely storing a directed graph topology. Second category is for the graph data structures used by graph databases for solely storing graph properties. In this section, we adopt the categorization presented in \cite{Paradies2017} and present the necessary background information of a selected subset of graph data structures. We first discuss three data structures (Adjacency Matrix, Compressed Sparse Row (CSR), Adjacency List) for graph topology in (\ref{subsec:GraphTopology}). Next, we present three data structures (Universal Table, Emerging Schema, Nested Key-Value Store) for storing graph properties in (\ref{subsec:GraphProperties}).
+In (\ref{sec:GraphModels}), we presented two logical graph data models. First, we presented the property graph model (PGM) in (\ref{subsec:PGM}). Next, we presented the resource description framework model (RDF) in (\ref{subsec:RDF}). In \cite{Paradies2017},  the authors (\textit{Paradies et al.}) categorized the data structures used to store graph data into two categories. First category is for the graph data structures used by graph databases for solely storing a directed graph topology. Second category is for the graph data structures used by graph databases for solely storing graph properties. In this section, we adopt the categorization presented in \cite{Paradies2017} and present the necessary background information of a selected subset of graph data structures. We first discuss three data structures (Adjacency Matrix, Compressed Sparse Row (CSR), Adjacency List) for graph topology in (\ref{subsec:GraphTopology}). Next, we present three data structures (Universal Table, Emerging Schema, Nested Key-Value Store) for storing graph properties in (\ref{subsec:GraphProperties}).
 
 
 \subsection{Graph Topology}
@@ -204,7 +204,7 @@ Instead of storing $|V|^2$ elements in the adjacency matrix, the compressed spar
 \subsubsection{Adjacency List}
 \label{subsubsec:AdjacencyList}
 
-In adjacency matrix we have faced the problem of storing redundant and unnecessary information regarding the absent edges. Although the compressed sparse row (CSR) format has offered a solution to this problem by storing only the necessary information, it raised a different issue which is the expensive manipulation of the data.
+In adjacency matrix we faced the problem of storing redundant and unnecessary information regarding the absent edges. Although the compressed sparse row (CSR) format has offered a solution to this problem by storing only the necessary information, it raised a different issue which is the expensive manipulation of the data.
 
 The adjacency list \textit{Adj} of a graph \textit{G = (V,E)} is composed of a set of $|V|$ pairs. Each pair is consisted of a vertex $u$ and a vector $K$ that contains the adjacencies of $u$ \cite{van1998python}.
 
@@ -258,7 +258,7 @@ The memory required for storing an adjacency list of a graph is $O(|V| + |E|)$ \
 \subsection{Graph Properties}
 \label{subsec:GraphProperties}
 
-In (\ref{subsec:GraphTopology}), we have introduced three graph topology data structures. The three data structures are storing information only regarding the graph topology, leaving out the storage of information regarding the properties of the graph to the graph properties data structures. 
+In (\ref{subsec:GraphTopology}), we introduced three graph topology data structures. The three data structures are storing information only regarding the graph topology, leaving out the storage of information regarding the properties of the graph to the graph properties data structures. 
 
 In this section, we introduce three data structures that can be utilized by graph databases for storing the properties of vertices and edges for a given graph. In (\ref{subsubsec:UniversalTable}), we present the universal table. Next, we present the emerging schema approach in (\ref{subsubsec:EmergingSchema}). Lastly, we present the nested key-value store in (\ref{subsubsec:NestedkeyValueStore}).
 
@@ -275,7 +275,7 @@ In (Figure \ref{fig:PropertyGraph}), we show an example of an attributed directe
 \subsubsection{Emerging Schema}
 \label{subsubsec:EmergingSchema}
 
-In (\ref{subsubsec:UniversalTable}), we have discussed a simple method of storing an attributed graph using only a pair of universal tables, a vertex universal table and an edge universal table. The universal table method is subject to a drawback as it tends to be more sparse as the number of distinct properties increase.
+In (\ref{subsubsec:UniversalTable}), we discussed a simple method of storing an attributed graph using only a pair of universal tables, a vertex universal table and an edge universal table. The universal table method is subject to a drawback as it tends to be more sparse as the number of distinct properties increase.
 
 Emerging schema is a method that applies vertical partitioning on the properties of objects (vertices or edges) in a way that reduces the sparseness of the data stored and at the same time doesn't require the joining of many tables to extract a single object's properties. The emerging schema method is exploiting the inherent schema of the data to create a set of column groups for vertices and another set of column groups for edges. 
 
@@ -287,7 +287,7 @@ Clustering is applied once on the vertex universal table and once on the edge un
 
 In (Figure \ref{fig:PropertyGraph}), we show an example of an attributed directed graph $G$ that is composed of 4 vertices and 5 edges. In (Figure \ref{fig:VertexEmergingSchema}), we present the vertex column groups for $G$ that is produced by the emerging schema method. Similarly, in (Figure \ref{fig:EdgeEmergingSchema}), we present the edge column groups for $G$ that is produced by the emerging schema method. Question marks in the column groups denotes absence of a value (i.e. a null value) \cite{Paradies2017}. 
 
-Even though graph $G$ is attributed, it is not explicitly defining an identifying label for each object. For storing the graph data in a universal table, an identifying label must be defined for each vertex and edge. The property $"id"$ that describes the vertices is appearing to have a unique value for each vertex and hence we have used it to act as the vertex-label. For edges, we have found three properties that we can use to uniquely identify each edge. The three properties are the $"id"$ property of the source vertex, the $"id"$ property of the target vertex, and the $"type"$ property of an edge. The concatenation of the three properties is acting as the edge-label.
+Even though graph $G$ is attributed, it is not explicitly defining an identifying label for each object. For storing the graph data in a universal table, an identifying label must be defined for each vertex and edge. The property $"id"$ that describes the vertices is appearing to have a unique value for each vertex and hence we used it to act as the vertex-label. For edges, we found three properties that we can use to uniquely identify each edge. The three properties are the $"id"$ property of the source vertex, the $"id"$ property of the target vertex, and the $"type"$ property of an edge. The concatenation of the three properties is acting as the edge-label.
 
 
 \subsubsection{Nested Key-Value Store}
@@ -365,6 +365,6 @@ The (\texttt{std::pair}) data structure is a simple container that is offered in
 
 In this chapter, we made a formal definition of a graph according to the graph theory and discussed the different graph types. We presented two logical graph models that are most commonly used  by state of the art graph databases, the property graph model (PGM) and the resource description framework model (RDF). We presented several storage structures used by graph databases to store graph data and we differentiated between structures used to store graph topology and structures used to store graph properties. We presented a set of data structures that are offered by the $C++$ programming language which we will use as the building blocks for the physical design of graph data structures.
 
-Aiming to evaluate and benchmark the different graph storage structures, we have implemented a set of graph storage structures by their two types (graph topology structures and graph properties structures). In the next chapter, we present the details of the implementation with a focus on the physical design of the graph storage structures we have implemented.
+Aiming to evaluate and benchmark the different graph storage structures, we implemented a set of graph storage structures by their two types (graph topology structures and graph properties structures). In the next chapter, we present the details of the implementation with a focus on the physical design of the graph storage structures we implemented.
 
 }

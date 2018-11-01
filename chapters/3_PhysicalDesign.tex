@@ -100,7 +100,7 @@ In (\ref{chap:Eval_4} and \ref{chap:Eval_5}), we present the evaluation results 
 \section{Graph Topology Structures}
 \label{sec:PhyDesign-GraphTopology}
 
-In (\ref{sec:EvalQuests}), we introduced a set of evaluation questions that we aim to answer in this thesis. In this section, we present the physical design of graph topology data structures we implemented , which we later will execute a set of evaluation tests on to find answers for the evaluation questions.
+In (\ref{sec:EvalQuests}), we introduced a set of evaluation questions that we aim to answer in this thesis. In this section, we present the physical design of graph topology data structures we implemented , which we later will execute a set of evaluation tests on to find answers for the evaluation questions. We designed all the graph topology structures in this section to represent a graph that is characterized by being labeled and directed.
 
 We used the \textit{C++} programming language in the implementation of the data structures. We utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage \cite{josuttis2012c++}.
 
@@ -163,7 +163,7 @@ In (Figure \ref{fig:adjLst_logical}), we show an example of the adjacency list p
 \section{Graph Properties Structures}
 \label{sec:PhyDesign-GraphProperties}
 
-In (\ref{sec:PhyDesign-GraphTopology}), we presented the physical design of graph topology data structures. In this section, we proceed with the introduction of our physical design for more graph data structures. we present the physical design of graph properties.
+In (\ref{sec:PhyDesign-GraphTopology}), we presented the physical design of graph topology structures. In this section, we proceed with the introduction of our physical design for more graph data structures. we present the physical design of graph properties. We designed all the graph properties structures to support all the characteristics of the property graph model. 
 
 We continue using the \textit{C++} programming language in the implementation of the data structures. We utilized data structures from the $C++/STL$ library as the base for designing and implementing the graph topology data structures. We implemented all the data structures for in-memory processing of data with no involvement of disk persistent storage (for more information on \textit{C++} or $STL$, see \cite{josuttis2012c++}).
 
@@ -176,7 +176,7 @@ Following, we present the physical design of the three graph properties data str
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{pics/PropertyGraph.png}
+\includegraphics[width=0.9\textwidth]{pics/PropertyGraph.png}
 \caption{An attributed directed graph \textit{G} \cite{DBLP:journals/corr/ParadiesLB14}.}
 \label{fig:PropertyGraph_physical}
 \end{figure} 
@@ -363,7 +363,7 @@ Using the nested key-value store along with the appropriate lock on the attached
 \section{Partitioned Graph Topology}
 \label{sec:PhyDesign-GraphPartitioning}
 
-In (\ref{sec:PhyDesign-GraphProperties}), we presented the physical design of three graph properties structures. The physical design of the graph properties structures allows for the storage of a directed labeled multi-graph as well as the properties of the graph objects. In (\ref{sec:PhyDesign-GraphTopology}), we presented the physical design of three graph topology structures which allows for the storage of a directed labeled graph. For consistency of the physical design between the graph topology and graph properties structures, we present in this section a method to extend the physical design of the graph topology structures to support the storage of a multi-graph. 
+In (\ref{sec:PhyDesign-GraphProperties}), we presented the physical design of three graph properties structures. The physical design of the graph properties structures allows for the storage of a graph that is in the form of a property graph model (i.e. directed, labeled, attributed, and multi-graph). In (\ref{sec:PhyDesign-GraphTopology}), we presented the physical design of three graph topology structures which allows for the storage of a directed and labeled graph. For consistency of the physical design between the graph topology and graph properties structures, we present in this section a method to extend the physical design of the graph topology structures to support the storage of a multi-graph.
 
 We introduce a graph partitioning technique as an extension to the physical design of the graph topology structures. In a multi-graph multiple edges could exist between the same two vertices, where edge is identified by an edge-label assigned to it. We use the edge label assigned to each edge in the graph as the partitioning key. In a partitioned graph topology each edge-label is linked to a graph topology structure and together they offer the storage of a multi-graph. \\\\
 

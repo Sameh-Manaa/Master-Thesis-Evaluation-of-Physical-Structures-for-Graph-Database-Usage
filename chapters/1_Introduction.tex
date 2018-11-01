@@ -1,5 +1,68 @@
 {\chapter{Introduction}
 \label{chap:Introduction}
 
+%(a) State the problem to be solved.
+Graph databases are characterized by being able to store and query a network of connected data with a performance that exceeds other non-graph databases (e.g. relational databases). Graph databases are flexible in modeling graph data, allowing for the evolve of the model by adding new vertices, edges, or properties as demanded without compromising the stability or performance of the system. Native graph databases differentiate themselves from non-native graph databases by using data structures that are specifically designed for the storage of graph data, in contrast to the use of other kinds of databases as the back-end storage system which is the case in the non-native graph databases \cite{robinson2013graph}. 
+
+In a survey performed by (\textit{Sahu et al.}), many participants have reported the use of graph databases to store and process graph data that is huge in size (more than 1 billion edge). The participants in the survey have reported a wide variety of computations that they perform on the stored data. The computations the users performed ranged from simple traversal queries and up to complex analytical queries. However, the survey participants have reported the scalability of the database to manage bigger sizes of data and perform more complex computations as their top challenge. Loading graph data or performing traversal queries are considered a very time consuming operations when done on a graph with large size \cite{sahu2017ubiquity}.
+
+The scalability and query performance issues of a graph database are indicators of the disability of the database to handle the growing data size. A major part of the performance of a graph database lies in the ability of its storage system to accommodate graph data with larger size without hindering the accessibility of the data. The design choices of the storage system include the proper choice of a graph data structure for the storage of graph data. Each graph data structure is representing graph data in a distinct way and hence the difference in the performance of each graph data structure in storing new data or reaching existing ones.\\
+
+%(b) Discuss the state of the art (i.e., previous work) and explain why, despite/because of this literature, there remains: (i) confusion; (ii) misunderstanding; (iii) errors; or (iv) some unresolved problem. Alternatively, present an empirical puzzle that the existing literature fails to explain.
+
+Few work has been done on evaluating the alternative choices of graph data structures which will aid graph database designers in choosing the proper graph data structure that fits the user requirements. Current work done in this area has only evaluated a small subset of the available graph data structures. In their work, \textit{(Wheatman et al.)} have evaluated only adjacency list and compressed sparse row (CSR) performance in loading and query performance leaving out other graph data structure like adjacency matrix \cite{wheatmanpacked}. Other work done by \textit{(Then et al.)}, has evaluated various techniques of parallel graph loading \cite{then2016evaluation}. \\
+
+Both work \cite{wheatmanpacked, then2016evaluation} have presented evaluation of loading and querying of graph topology structures which are used to represent the edges between the graph vertices. We found no previous work on evaluating the performance of the graph properties structures which are used to represent the properties associated with each graph element (vertices and edges) in the property graph model. The property graph model (PGM) is the most widely implemented graph data model in graph databases . Also, we found no work that covers the evaluation of graph data structures in the presence of a multi-graph data. The multi-graph property allows more than one edge between the same two vertices. Multi-graphs and graph properties are two important characteristics of the property graph model \cite{robinson2013graph}. Lastly, we found no work that evaluates the performance of graph data structure when loaded in batches of data neither the impact of the batch-size on the performance of the loading process.\\
+
+
+%(c) State the essence of your contribution, that is, your solution to the problem or puzzle. Give the reader a sense of how you will solve the problem; provide some confidence that if she reads the rest of your paper, she has a chance of learning something.
+
+
+In this thesis, we aim to present a comprehensive evaluation of the major graph data structures that have been developed specifically for the storage and processing of graph data. Our contribution in this thesis is summarized in the following points:
+
+
+\begin{itemize}  
+\item\textbf{Graph Data Structures:}\\
+We study the major available graph data structures from two perspectives. First, we study the graph structures logical design and the characteristics of each graph structure. Next, we present our physical design of the different graph structures which we have constructed using the data structures offered as part of the \textit{Standard Template Library} (STL) of the $C++$ programming language. For evaluation purposes, we implement all the data structures for in-memory processing of data with no involvement of disk persistent storage.\\
+
+\item \textbf{Scalability of Graph Structures:}\\
+We present an extensive evaluation of the scalability of the different graph structures. We evaluate the scalability of a graph structure by measuring the amount of memory storage as well as the time taken to store graph data. We use a different sizes of a graph dataset generated by the \textit{LDBC} bench-marking framework \cite{boncz2013ldbc}.\\
+
+\item \textbf{Evaluation of Loading Techniques:}\\
+We present an evaluation of two techniques for graph data loading. First, we evaluate a batch loading technique and the impact of the batch-size on the performance of the loading process. Next, we evaluate a parallel loading technique and the change in data loading time that loading the data in parallel could introduce in comparison to sequential loading.\\
+
+\item \textbf{Evaluation of Query Execution:}\\
+We present the definition of a set of queries which compute centrality or perform pattern-matching on the loaded graph data. We evaluate the time taken to execute each of the given queries on the data loaded in each of the graph structures.
+
+\end{itemize}
+
+
+%(d) The last paragraph of your introduction should always be a "road map" paragraph; for example: "This paper proceeds as follows. In section 1 ..."
+
+The thesis is consisted of the following chapters: 
+
+\begin{itemize}  
+\item\textbf{Background:}\\
+In (\ref{chap:Background}), we present the necessary background knowledge concerning topics covered in this thesis.
+
+\item \textbf{Physical Design of Graph Data Structures:}\\
+In (\ref{chap:PhysicalDesign}), we present the set of evaluation questions we are going to answer in this thesis as well as the physical design of the graph data structures, we are going to evaluate.
+
+\item \textbf{Evaluation Environment:}\\
+In (\ref{chap:Eval_4}), we introduce the details of every component in the evaluation environment which we will use to evaluate our implemented graph data structures.
+
+\item \textbf{Evaluation: Scalability and Data Loading:}\\
+In (\ref{chap:Eval_5}), we present the first part of the evaluation results for the experiments we conducted on the graph data structures concerning the scalability of the graph structures and the performance of data loading.
+
+\item \textbf{Evaluation: Queries:}\\
+In (\ref{chap:Eval_6}), we present the second and last part of the evaluation results for the experiments we conducted to evaluate the performance of the graph structures in query execution scenarios.
+
+\item \textbf{Related Work:}\\
+In (\ref{chap:RelatedWork}), we present work by other researchers which we see as related to the work done in this thesis.
+
+\item \textbf{Conclusion and Future Work:}\\
+In (\ref{chap:Conclusion}), we draw a conclusion of the thesis as well as suggesting research points that can be a further extension of our work.  
+\end{itemize}
+
 
 }

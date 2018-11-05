@@ -1,3 +1,38 @@
 {\chapter{Related Work}
 \label{chap:RelatedWork}
+
+
+In (\ref{chap:Eval_6}), we presented the second and last part of the evaluation results for the experiments we conducted on the graph structures in order to evaluate the performance of the graph structures in query execution. In this chapter, we present an overview of other research that is related to the work we did in this thesis. This chapter is consisted of the following sections:
+
+\begin{itemize}  
+
+\item \textbf{Graph Structures Scalability:}\\
+In section (\ref{sec:relatedWork-scalability}), we present other research that have been done to evaluate the scalability of graph data structures.
+
+\item \textbf{Loading Techniques:}\\
+In section (\ref{sec:relatedWork-loading}), we present other research that have been done to evaluate the performance of graph data loading techniques.
+
+\item \textbf{Query Performance:}\\
+In section (\ref{sec:relatedWork-query}), we present other research that have been done to evaluate the performance of query execution on data in the graph data structures.
+
+\end{itemize}
+
+
+\section{Graph Structures Scalability}
+\label{sec:relatedWork-scalability}
+
+The scalability of a graph data structure is determined by its ability to process larger graphs. Scalability is measured by the amount of time and memory taken to load, modify, or perform computation on a graph with larger size. In a research done by \textit{(Wheatman and Xu)}, the authors presented a scalability evaluation for the loading, updating, and querying of a packed version of the compressed sparse row (CSR) structure against basic CSR, adjacency list, and other variants of adjacency list \cite{wheatmanpacked}. \textit{King et al.} have presented a scalability evaluation for a dynamic version of CSR for (GPU) processing \cite{King2016DynamicCSRA}.
+
+\section{Loading Techniques}
+\label{sec:relatedWork-loading}
+
+\textit{Then et al.} have presented evaluation of a set of strategies that can be utilized for the parallel loading of graph data into graph structures. The authors have tested their proposed parallel loading strategies on an implemented version of the compressed sparse row (CSR) and map of neighbour list \cite{then2016evaluation}.
+
+\section{Query Performance}
+\label{sec:relatedWork-query}
+
+\textit{Abadi et al.} have presented an evaluation for the performance of query execution on a set of graph properties structures that included the emerging schema structure as well as other graph properties structures \cite{abadi2007scalable}. \textit{Wheatman and Xu} as well as \textit{Blandford et al.} have presented an evaluation for the performance of query execution on a set of graph topology structures that included the compressed sparse row structure and the adjacency list structure among others \cite{wheatmanpacked,blandford2004experimental}.
+
+
+
 }

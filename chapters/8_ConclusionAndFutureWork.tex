@@ -1,9 +1,12 @@
 {\chapter{Conclusion and Future Work}
 \label{chap:Conclusion}
 
-In (\ref{chap:RelatedWork}), we presented an overview of other research that is related to our work in this thesis. In this chapter, we make a conclusion of the thesis as well as proposing points where our research can be extended in a future work. This chapter is consisted of the following sections:
+In (\ref{chap:RelatedWork}), we presented an overview of other research that is related to our work in this thesis. In this chapter, we present some variables that we think they may pose threats to the validity of our research, we make a conclusion of the thesis as well as proposing points where our research can be extended in a future work. This chapter is consisted of the following sections:
 
 \begin{itemize}  
+
+\item \textbf{Threats to Validity:}\\
+In section (\ref{sec:threatsToValidity}), we present a set of variables that we think may pose threats to the validity of our evaluation for the performance of the different graph structures.
 
 \item \textbf{Conclusion:}\\
 In section (\ref{sec:Conclusion}), we draw a conclusion of the work presented in this thesis.
@@ -13,6 +16,22 @@ In section (\ref{sec:futureWork}), we propose how future work can extend the wor
 
 \end{itemize}
 
+\section{Threats to Validity}
+\label{sec:threatsToValidity}
+
+In this thesis, we examined the influence of different variables (e.g. batch size and query type) on the performance of the different graph structures. In this section we present a set of variables that we believe may be a threat to the validity of our evaluation.
+
+
+\begin{itemize}  
+
+\item \textbf{Dataset:}\\
+We used the randomly generated dataset \textit{LDBC} for benchmarking the graph data structures performance in loading and querying scenarios. We believe that the use of real life datasets that are different in size and schema may affect the performance of the graph data structures in loading and querying.
+
+\item \textbf{Data Structure Optimization:}\\
+We used the data structures offered in the \textit{Standard Template Library} (STL) of the $C++$ programming language as the building blocks for constructing the graph data structures. The $STL$ data structures are optimized for general purposes and not specifically optimized for the loading, storing, and retrieval of graph-like data. The lack of optimization for the data structures for the special nature of graph data may be a threat to the performance of the graph data structures that we built using them.
+
+
+\end{itemize}
 
 \section{Conclusion}
 \label{sec:Conclusion}
@@ -54,7 +73,7 @@ We have tested the performance of the graph structures in terms of the time take
 A typical graph database will offer access to multiple user simultaneously. The concurrent access by users needs special handling by the database to schedule the operations of the users in a way that returns the expected result to the user and at the same time maintains the consistency of the database. Future work may consider the performance of the graph structures in performing concurrent operations requested by multiple users.
 
 \item \textbf{Reachability, and Analytical Queries:}\\
-In this thesis, we have examined the performance of the graph structures in the execution of two pattern-matching queries in addition to a degree centrality summarizing query. Other categories of queries haven't been covered in this thesis. Reachability queries are testing the possibility of reaching one vertex from another via a path of connected edges. Analytical queries are complex queries that performs statistical or analytical computation over the graph data. An example of an analytical query is the \textit{PageRank} algorithm \cite{Angles2018}.
+In this thesis, we have examined the performance of the graph structures in the execution of two pattern-matching queries in addition to a degree centrality summarizing query. Other categories of queries haven't been covered in this thesis. Reachability queries are testing the possibility of reaching one vertex from another via a path of connected edges. Analytical queries are complex queries that performs statistical or analytical computation over the graph data. An example of an analytical query is the \textit{PageRank} algorithm \cite{Angles2018}. Also, the performance of the graph needs to be examined according to queries with varying selectivity parameters.
 
 \end{itemize}
 

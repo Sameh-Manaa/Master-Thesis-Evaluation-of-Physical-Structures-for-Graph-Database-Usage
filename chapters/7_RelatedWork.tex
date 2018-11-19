@@ -15,6 +15,9 @@ In section (\ref{sec:relatedWork-loading}), we present other research that have 
 \item \textbf{Query Performance:}\\
 In section (\ref{sec:relatedWork-query}), we present other research that have been done to evaluate the performance of query execution on data in the graph data structures.
 
+\item \textbf{Graph Libraries:}\\
+In section (\ref{sec:relatedWork-graphLibraries}), we present graph libraries that offer an alternative implementation to graph data structures and algorithms.
+
 \end{itemize}
 
 
@@ -33,6 +36,11 @@ The scalability of a graph data structure is determined by its ability to proces
 
 \textit{Abadi et al.} have presented an evaluation for the performance of query execution on a set of graph properties structures that included the emerging schema structure as well as other graph properties structures \cite{abadi2007scalable}. \textit{Wheatman and Xu} as well as \textit{Blandford et al.} have presented an evaluation for the performance of query execution on a set of graph topology structures that included the compressed sparse row structure and the adjacency list structure among others \cite{wheatmanpacked,blandford2004experimental}.
 
+
+\section{Graph Libraries}
+\label{sec:relatedWork-graphLibraries}
+
+In this thesis, we developed our own implementation of the graph data structures. Other graph libraries that offer an alternative implementation of graph data structures do exist. The \textit{Boost Graph Library (BGL)} is providing a standardized generic interface for building graph data structures and traversal algorithms for the stored graph data. The boost graph library is implemented using the \textit{C++} programming language and offers an implementation of a set of graph data structures (e.g. adjacency list and adjacency matrix) \cite{boostGraphLibrary2001}. The \textit{Stanford Network Analysis Platform (SNAP)} is a network analysis library that has a back-end written in \textit{C++} and an interface that is offered in \textit{python}. SNAP supports the representation of directed, undirected, and multi-graph types. Internally, SNAP is using an adjacency list in order to represent the graph topology \cite{leskovec2016snap}. \textit{NetworkX} is a graph library that is written in \textit{python} and offers data structures for storing graph data as well as algorithms for network analysis and traversal. NetworkX can operate over graphs of type directed, undirected, simple, pseudo, or multi-graph. NetworkX is offering three graph structures (edge list, adjacency matrix, or adjacency list) for the storage of graph topology \cite{SciPyProceedings_11}.
 
 
 }

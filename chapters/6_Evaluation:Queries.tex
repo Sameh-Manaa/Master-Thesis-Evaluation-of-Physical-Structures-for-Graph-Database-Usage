@@ -42,7 +42,7 @@ In this section, we present the evaluation results for the query response time o
 \begin{itemize}
 
 \item \textbf{Experiment Setup:}\\
-In this experiment we used the batch data loader to load the evaluation dataset into the graph structures. We fixed the batch size of the batch loader to (1000). Query \#1 requires only as an input the properties of each vertex, therefore we loaded the evaluation dataset only into the graph properties structures. We loaded the evaluation dataset with scale factor (4). We loaded the data into each graph properties structure and executed the query for twenty times and recorded the query response time of each run. We took the average of the measured figures after removing the most top and least figures.
+In this experiment we used the batch data loader to load the evaluation dataset into the graph structures. We fixed the batch size of the loader to (1000). Query \#1 requires only as an input the properties of each vertex, therefore we loaded the evaluation dataset only into the graph properties structures. We loaded the evaluation dataset with scale factor (4) into each graph properties structure and executed the query for twenty times and recorded the query response time of each run. We took the average of the measured figures after removing the most top and least figures. We set the query parameters in this experiment to the following values: (\textit{\$date = "2011-07-21T22:00:00"}).
 
 
 \item \textbf{Expected Result:}\\
@@ -50,12 +50,10 @@ We expect the response time of Query \#1 on universal table to be the lowest and
 
 
 \item \textbf{Observation:}\\
-We observed that universal table has recorded the lowest response time for Query \#1 with only (13.901 seconds). Also, we observed that the nested key-value store came in the second place with a response time of (15.285 seconds) and at the last place came the emerging schema structure with (15.293 seconds) not far from the nested key-value store.
-
-In (\ref{fig:eval-query1}), we show a chart depicting Query \#1 response time when executed on the different graph properties structures.
+We observed that universal table has recorded the lowest response time for Query \#1 with only (13.901 seconds). Also, we observed that the nested key-value store came in the second place with a response time of (15.285 seconds) and at the last place came the emerging schema structure with (15.293 seconds) not far from the nested key-value store. In (\ref{fig:eval-query1}), we show a chart depicting Query \#1 response time when executed on the different graph properties structures.
 
 \item \textbf{Conclusion:}\\
-To answer question number (4) from the evaluation questions listed in (\ref{sec:EvalQuests}), the evaluation results are showing that the universal table structure has the lowest response time when executing a simple pattern-matching query that requires no traversals between the graph elements. Universal table response time for Query \#1 is less by (9\%) than the response time of emerging schema and nested key-value store.
+To answer question number (4) from the evaluation questions listed in (\ref{sec:EvalQuests}), the evaluation results are showing that the universal table structure has the lowest response time when executing a simple pattern-matching query that requires no traversals between the graph elements. Universal table response time for Query \#1 is less by (9\%) than emerging schema and nested key-value store.
 
 \end{itemize}
 
@@ -71,7 +69,8 @@ In this section, we present the evaluation results for the query response time o
 \begin{itemize}
 
 \item \textbf{Experiment Setup:}\\
-In this experiment we used the batch data loader to load the evaluation dataset into the graph structures. We fixed the batch size of the batch loader to (1000). Query \#2 requires as an input both: the properties of each vertex as well as the topology of the graph, therefore we loaded the evaluation dataset into every possible combination of a graph properties structure and a graph topology structure. We loaded the evaluation dataset with scale factor (4). We excluded the adjacency matrix out of this test due to the scalability issue we faced when we tried to load the evaluation dataset into the adjacency matrix \textit{(see \ref{subsec:scalability-topology})}. We loaded the data into each graph structure and executed the query for twenty times and recorded the query response time of each run. We took the average of the measured figures after removing the most top and least figures.
+In this experiment we used the batch data loader to load the evaluation dataset into the graph structures. We fixed the batch size of the batch loader to (1000). Query \#2 requires as an input both: the properties of each vertex as well as the topology of the graph, therefore we loaded the evaluation dataset into every possible combination of a graph properties structure and a graph topology structure. We loaded the evaluation dataset with scale factor (4). We excluded the adjacency matrix out of this test due to the scalability issue we faced when we tried to load the evaluation dataset into the adjacency matrix \textit{(see \ref{subsec:scalability-topology})}. We loaded the data into each graph structure and executed the query for twenty times and recorded the query response time of each run. We took the average of the measured figures after removing the most top and least figures. We set the query parameters in this experiment to the following values: (\textit{\$date = "2011-07-22T00:00:00", \$lengthThreshold = "20", \$languages = \{"ar"\}}).
+
 
 
 \begin{figure}[H]
